@@ -3,7 +3,7 @@ package server
 import (
 	"bytes"
 	logger2 "github.com/ArtisanCloud/PowerLibs/v3/logger"
-	"github.com/ArtisanCloud/PowerWeChat/v3/src/kernel"
+	"github.com/px94/PowerWeChat/v3/src/kernel"
 	"io/ioutil"
 	"net/http"
 )
@@ -13,7 +13,7 @@ type Guard struct {
 }
 
 func NewGuard(app *kernel.ApplicationInterface) *Guard {
-	//config := (*app).GetContainer().GetConfig()
+	// config := (*app).GetContainer().GetConfig()
 
 	guard := &Guard{
 		kernel.NewServerGuard(app),

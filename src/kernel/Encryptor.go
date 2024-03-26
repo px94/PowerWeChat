@@ -12,7 +12,7 @@ import (
 	"encoding/xml"
 	"fmt"
 	"github.com/ArtisanCloud/PowerLibs/v3/object"
-	"github.com/ArtisanCloud/PowerWeChat/v3/src/kernel/support"
+	"github.com/px94/PowerWeChat/v3/src/kernel/support"
 	"math/rand"
 	"sort"
 	"strings"
@@ -66,9 +66,9 @@ func NewEncryptor(appID, token, aesKey string) (*Encryptor, error) {
 
 	var aesKeyByte []byte
 	var err error
-	//if aesKey == "" {
+	// if aesKey == "" {
 	//	fmt2.Dump("AES Key is empty, this may occur errors when decode callbacks message")
-	//}
+	// }
 	aesKeyByte, err = base64.StdEncoding.DecodeString(aesKey)
 	if err != nil {
 		aesKeyByte, err = base64.RawStdEncoding.DecodeString(aesKey)
@@ -112,7 +112,7 @@ func (encryptor *Encryptor) Encrypt(msg, nonce, timestamp string) ([]byte, *supp
 	buffer.WriteString(msg)
 
 	// TODO 暂时不知道用途
-	//buffer.WriteString(wxBizMsgCrypt.receiverID)
+	// buffer.WriteString(wxBizMsgCrypt.receiverID)
 	buffer.WriteString(encryptor.appID)
 
 	tmpCiphertext, err := encryptor.aes.Encrypt(buffer.Bytes(), encryptor.aesKey, encryptor.aesKey[:aes.BlockSize])
@@ -135,8 +135,8 @@ func (encryptor *Encryptor) Encrypt(msg, nonce, timestamp string) ([]byte, *supp
 		Timestamp: timestamp,
 		Nonce:     CDATA{Value: nonce},
 	}
-	//msg4Send := NewWXBizMsg4Send(ciphertext, signature, timestamp, nonce)
-	//msg.Marshal()
+	// msg4Send := NewWXBizMsg4Send(ciphertext, signature, timestamp, nonce)
+	// msg.Marshal()
 	xmlByte, err2 := xml.Marshal(msg4Send)
 	if err2 != nil {
 		return nil, support.NewCryptError(ErrorXmlBuild, err2.Error())
@@ -161,7 +161,7 @@ func (encryptor *Encryptor) Decrypt(content []byte, msgSignature, nonce, timesta
 
 	iv := encryptor.aesKey[:aes.BlockSize]
 	plaintext, cryptErr := encryptor.aes.Decrypt(msg4Recv.Encrypt, encryptor.aesKey, iv)
-	//plaintext, cryptErr := wxBizMsgCrypt.cbcDecrypter(msg4Recv.Encrypt)
+	// plaintext, cryptErr := wxBizMsgCrypt.cbcDecrypter(msg4Recv.Encrypt)
 	if nil != cryptErr {
 		return nil, cryptErr
 	}
@@ -170,14 +170,14 @@ func (encryptor *Encryptor) Decrypt(content []byte, msgSignature, nonce, timesta
 	if textLen < 20 {
 		return nil, support.NewCryptError(IllegalBuffer, "plain is to small 1")
 	}
-	//random := plaintext[:16]
+	// random := plaintext[:16]
 	msgLen := binary.BigEndian.Uint32(plaintext[16:20])
 	if textLen < (20 + msgLen) {
 		return nil, support.NewCryptError(IllegalBuffer, "plain is to small 2")
 	}
 
 	msg := plaintext[20 : 20+msgLen]
-	//receiverID := plaintext[20+msgLen:]
+	// receiverID := plaintext[20+msgLen:]
 
 	return msg, nil
 }
@@ -187,7 +187,7 @@ func (encryptor *Encryptor) DecryptContent(content string) ([]byte, *support.Cry
 
 	iv := encryptor.aesKey[:aes.BlockSize]
 	plaintext, cryptErr := encryptor.aes.Decrypt(content, encryptor.aesKey, iv)
-	//plaintext, cryptErr := wxBizMsgCrypt.cbcDecrypter(msg4Recv.Encrypt)
+	// plaintext, cryptErr := wxBizMsgCrypt.cbcDecrypter(msg4Recv.Encrypt)
 	if nil != cryptErr {
 		return nil, cryptErr
 	}
@@ -196,14 +196,14 @@ func (encryptor *Encryptor) DecryptContent(content string) ([]byte, *support.Cry
 	if textLen < 20 {
 		return nil, support.NewCryptError(IllegalBuffer, "plain is to small 1")
 	}
-	//random := plaintext[:16]
+	// random := plaintext[:16]
 	msgLen := binary.BigEndian.Uint32(plaintext[16:20])
 	if textLen < (20 + msgLen) {
 		return nil, support.NewCryptError(IllegalBuffer, "plain is to small 2")
 	}
 
 	msg := plaintext[20 : 20+msgLen]
-	//receiverID := plaintext[20+msgLen:]
+	// receiverID := plaintext[20+msgLen:]
 
 	return msg, nil
 }

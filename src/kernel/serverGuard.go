@@ -9,10 +9,10 @@ import (
 	"fmt"
 	logger2 "github.com/ArtisanCloud/PowerLibs/v3/logger"
 	"github.com/ArtisanCloud/PowerLibs/v3/object"
-	"github.com/ArtisanCloud/PowerWeChat/v3/src/kernel/contract"
-	"github.com/ArtisanCloud/PowerWeChat/v3/src/kernel/messages"
-	"github.com/ArtisanCloud/PowerWeChat/v3/src/kernel/models"
-	"github.com/ArtisanCloud/PowerWeChat/v3/src/kernel/support"
+	"github.com/px94/PowerWeChat/v3/src/kernel/contract"
+	"github.com/px94/PowerWeChat/v3/src/kernel/messages"
+	"github.com/px94/PowerWeChat/v3/src/kernel/models"
+	"github.com/px94/PowerWeChat/v3/src/kernel/support"
 	"io"
 	"io/ioutil"
 	"net/http"
@@ -440,7 +440,7 @@ func (serverGuard *ServerGuard) parseMessage2(content string) (dataContent *obje
 		// check xml format
 		if content[0] == '<' {
 			dataContent = &object.HashMap{}
-			//err = xml.Unmarshal([]byte(content), &dataContent)
+			// err = xml.Unmarshal([]byte(content), &dataContent)
 			*dataContent, err = object.Xml2Map([]byte(content))
 			if err != nil {
 				return nil, err

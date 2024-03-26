@@ -3,13 +3,13 @@ package basicService
 import (
 	"github.com/ArtisanCloud/PowerLibs/v3/logger/contract"
 	"github.com/ArtisanCloud/PowerLibs/v3/object"
-	"github.com/ArtisanCloud/PowerWeChat/v3/src/basicService/contentSecurity"
-	"github.com/ArtisanCloud/PowerWeChat/v3/src/basicService/jssdk"
-	"github.com/ArtisanCloud/PowerWeChat/v3/src/basicService/media"
-	"github.com/ArtisanCloud/PowerWeChat/v3/src/basicService/qrCode"
-	"github.com/ArtisanCloud/PowerWeChat/v3/src/basicService/url"
-	"github.com/ArtisanCloud/PowerWeChat/v3/src/kernel"
-	"github.com/ArtisanCloud/PowerWeChat/v3/src/kernel/providers"
+	"github.com/px94/PowerWeChat/v3/src/basicService/contentSecurity"
+	"github.com/px94/PowerWeChat/v3/src/basicService/jssdk"
+	"github.com/px94/PowerWeChat/v3/src/basicService/media"
+	"github.com/px94/PowerWeChat/v3/src/basicService/qrCode"
+	"github.com/px94/PowerWeChat/v3/src/basicService/url"
+	"github.com/px94/PowerWeChat/v3/src/kernel"
+	"github.com/px94/PowerWeChat/v3/src/kernel/providers"
 )
 
 type Application struct {
@@ -78,26 +78,26 @@ func NewApplication(config *UserConfig) (*Application, error) {
 		ServiceContainer: container,
 	}
 
-	//-------------- global app config --------------
+	// -------------- global app config --------------
 	// global app config
 	app.Config = providers.RegisterConfigProvider(app)
 
-	//-------------- register JSSDK --------------
+	// -------------- register JSSDK --------------
 	app.JSSDK, err = jssdk.RegisterProvider(app)
 	if err != nil {
 		return nil, err
 	}
-	//-------------- register QRCode --------------
+	// -------------- register QRCode --------------
 	app.QRCode, err = qrCode.RegisterProvider(app)
 	if err != nil {
 		return nil, err
 	}
-	//-------------- register Media --------------
+	// -------------- register Media --------------
 	app.Media, err = media.RegisterProvider(app)
 	if err != nil {
 		return nil, err
 	}
-	//-------------- media --------------
+	// -------------- media --------------
 	app.URL, err = url.RegisterProvider(app)
 	if err != nil {
 		return nil, err

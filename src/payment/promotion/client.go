@@ -3,9 +3,9 @@ package promotion
 import (
 	"context"
 	"github.com/ArtisanCloud/PowerLibs/v3/object"
-	payment "github.com/ArtisanCloud/PowerWeChat/v3/src/payment/kernel"
-	"github.com/ArtisanCloud/PowerWeChat/v3/src/payment/promotion/request"
-	"github.com/ArtisanCloud/PowerWeChat/v3/src/payment/promotion/response"
+	payment "github.com/px94/PowerWeChat/v3/src/payment/kernel"
+	"github.com/px94/PowerWeChat/v3/src/payment/promotion/request"
+	"github.com/px94/PowerWeChat/v3/src/payment/promotion/response"
 	"net/http"
 )
 
@@ -28,7 +28,7 @@ func NewClient(app *payment.ApplicationPaymentInterface) (*Client, error) {
 func (comp *Client) PayTransferToPocket(ctx context.Context, data *request.RequestPayTransferToPocket) (*response.ResponsePayTransferToPocket, error) {
 	result := &response.ResponsePayTransferToPocket{}
 
-	//params, err := object.StructToHashMapWithTag(data, "json")
+	// params, err := object.StructToHashMapWithTag(data, "json")
 	params, err := object.StructToHashMap(data)
 	if err != nil {
 		return nil, err
@@ -46,7 +46,7 @@ func (comp *Client) QueryTransferToPocket(ctx context.Context, data *request.Req
 
 	result := &response.ResponseQueryTransferToPocket{}
 
-	//params, err := object.StructToHashMapWithTag(data,"json")
+	// params, err := object.StructToHashMapWithTag(data,"json")
 	params, err := object.StructToHashMap(data)
 	if err != nil {
 		return nil, err

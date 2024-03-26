@@ -2,10 +2,10 @@ package shakeAround
 
 import (
 	"context"
-	"github.com/ArtisanCloud/PowerWeChat/v3/src/kernel"
+	"github.com/px94/PowerWeChat/v3/src/kernel"
 
-	"github.com/ArtisanCloud/PowerWeChat/v3/src/officialAccount/shakeAround/request"
-	"github.com/ArtisanCloud/PowerWeChat/v3/src/officialAccount/shakeAround/response"
+	"github.com/px94/PowerWeChat/v3/src/officialAccount/shakeAround/request"
+	"github.com/px94/PowerWeChat/v3/src/officialAccount/shakeAround/response"
 )
 
 type Client struct {

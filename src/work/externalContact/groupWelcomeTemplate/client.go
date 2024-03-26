@@ -3,10 +3,10 @@ package groupWelcomeTemplate
 import (
 	"context"
 	"github.com/ArtisanCloud/PowerLibs/v3/object"
-	"github.com/ArtisanCloud/PowerWeChat/v3/src/kernel"
-	response2 "github.com/ArtisanCloud/PowerWeChat/v3/src/kernel/response"
-	"github.com/ArtisanCloud/PowerWeChat/v3/src/work/externalContact/groupWelcomeTemplate/request"
-	"github.com/ArtisanCloud/PowerWeChat/v3/src/work/externalContact/groupWelcomeTemplate/response"
+	"github.com/px94/PowerWeChat/v3/src/kernel"
+	response2 "github.com/px94/PowerWeChat/v3/src/kernel/response"
+	"github.com/px94/PowerWeChat/v3/src/work/externalContact/groupWelcomeTemplate/request"
+	"github.com/px94/PowerWeChat/v3/src/work/externalContact/groupWelcomeTemplate/response"
 )
 
 type Client struct {

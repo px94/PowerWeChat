@@ -3,13 +3,13 @@ package main
 import (
 	"fmt"
 	fmt2 "github.com/ArtisanCloud/PowerLibs/v3/fmt"
-	"github.com/ArtisanCloud/PowerWeChat/v3/src/kernel"
-	"github.com/ArtisanCloud/PowerWeChat/v3/src/miniProgram"
-	"github.com/ArtisanCloud/PowerWeChat/v3/src/officialAccount"
-	"github.com/ArtisanCloud/PowerWeChat/v3/src/openPlatform"
-	"github.com/ArtisanCloud/PowerWeChat/v3/src/payment"
-	"github.com/ArtisanCloud/PowerWeChat/v3/src/work"
-	"github.com/ArtisanCloud/PowerWeChat/v3/test/testLogDriver"
+	"github.com/px94/PowerWeChat/v3/src/kernel"
+	"github.com/px94/PowerWeChat/v3/src/miniProgram"
+	"github.com/px94/PowerWeChat/v3/src/officialAccount"
+	"github.com/px94/PowerWeChat/v3/src/openPlatform"
+	"github.com/px94/PowerWeChat/v3/src/payment"
+	"github.com/px94/PowerWeChat/v3/src/work"
+	"github.com/px94/PowerWeChat/v3/test/testLogDriver"
 	"os"
 	"strconv"
 )
@@ -30,12 +30,12 @@ func GetOfficialConfig() *officialAccount.UserConfig {
 		Cache: kernel.NewRedisClient(&kernel.UniversalOptions{
 			Addrs:    []string{"127.0.0.1:6379"},
 			Password: "",
-			//Username: "username",
+			// Username: "username",
 			DB: 1,
 		}),
 		HttpDebug: true,
-		//Debug: true,
-		//"sandbox": true,
+		// Debug: true,
+		// "sandbox": true,
 
 	}
 
@@ -66,7 +66,7 @@ func GetWorkConfig() *work.UserConfig {
 			DB:       1,
 		}),
 
-		//HttpDebug: true,
+		// HttpDebug: true,
 		Debug: true,
 
 		// server config
@@ -77,8 +77,8 @@ func GetWorkConfig() *work.UserConfig {
 
 func GetPaymentConfig() *payment.UserConfig {
 	return &payment.UserConfig{
-		//"corp_id":        os.Getenv("corp_id"),
-		//"secret":         os.Getenv("secret"),
+		// "corp_id":        os.Getenv("corp_id"),
+		// "secret":         os.Getenv("secret"),
 		AppID:              os.Getenv("app_id"),
 		MchID:              os.Getenv("mch_id"),
 		MchApiV3Key:        os.Getenv("mch_api_v3_key"),
@@ -108,12 +108,12 @@ func GetPaymentConfig() *payment.UserConfig {
 		}),
 		NotifyURL: os.Getenv("notify_url"),
 		HttpDebug: true,
-		//Debug: true,
-		//"sandbox": true,
+		// Debug: true,
+		// "sandbox": true,
 
 		// server config
-		//Token:            os.Getenv("token"),
-		//AESKey:           os.Getenv("aes_key"),
+		// Token:            os.Getenv("token"),
+		// AESKey:           os.Getenv("aes_key"),
 
 	}
 }
@@ -136,8 +136,8 @@ func GetMiniProgramConfig() *miniProgram.UserConfig {
 			DB:       1,
 		}),
 		HttpDebug: true,
-		//Debug: true,
-		//"sandbox": true,
+		// Debug: true,
+		// "sandbox": true,
 
 	}
 
@@ -160,11 +160,11 @@ func GetOpenPlatformConfig() *openPlatform.UserConfig {
 			Password: "",
 			DB:       1,
 		}),
-		//OAuth:        "",
-		//HttpDebug:    "",
-		//Debug:        "",
-		//NotifyURL:    "",
-		//Sandbox:      "",
+		// OAuth:        "",
+		// HttpDebug:    "",
+		// Debug:        "",
+		// NotifyURL:    "",
+		// Sandbox:      "",
 	}
 }
 

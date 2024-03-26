@@ -5,61 +5,61 @@ import (
 	"github.com/ArtisanCloud/PowerLibs/v3/logger"
 	"github.com/ArtisanCloud/PowerLibs/v3/logger/contract"
 	"github.com/ArtisanCloud/PowerLibs/v3/object"
-	"github.com/ArtisanCloud/PowerWeChat/v3/src/kernel"
-	"github.com/ArtisanCloud/PowerWeChat/v3/src/kernel/providers"
-	miniProgram2 "github.com/ArtisanCloud/PowerWeChat/v3/src/miniProgram"
-	"github.com/ArtisanCloud/PowerWeChat/v3/src/work/accountService"
-	"github.com/ArtisanCloud/PowerWeChat/v3/src/work/accountService/customer"
-	message3 "github.com/ArtisanCloud/PowerWeChat/v3/src/work/accountService/message"
-	"github.com/ArtisanCloud/PowerWeChat/v3/src/work/accountService/serviceState"
-	"github.com/ArtisanCloud/PowerWeChat/v3/src/work/accountService/servicer"
-	tag3 "github.com/ArtisanCloud/PowerWeChat/v3/src/work/accountService/tag"
-	"github.com/ArtisanCloud/PowerWeChat/v3/src/work/agent"
-	"github.com/ArtisanCloud/PowerWeChat/v3/src/work/agent/workbench"
-	"github.com/ArtisanCloud/PowerWeChat/v3/src/work/auth"
-	"github.com/ArtisanCloud/PowerWeChat/v3/src/work/base"
-	"github.com/ArtisanCloud/PowerWeChat/v3/src/work/corpgroup"
-	"github.com/ArtisanCloud/PowerWeChat/v3/src/work/department"
-	"github.com/ArtisanCloud/PowerWeChat/v3/src/work/externalContact"
-	"github.com/ArtisanCloud/PowerWeChat/v3/src/work/externalContact/contactWay"
-	"github.com/ArtisanCloud/PowerWeChat/v3/src/work/externalContact/customerStrategy"
-	"github.com/ArtisanCloud/PowerWeChat/v3/src/work/externalContact/groupChat"
-	"github.com/ArtisanCloud/PowerWeChat/v3/src/work/externalContact/groupWelcomeTemplate"
-	"github.com/ArtisanCloud/PowerWeChat/v3/src/work/externalContact/messageTemplate"
-	"github.com/ArtisanCloud/PowerWeChat/v3/src/work/externalContact/moment"
-	"github.com/ArtisanCloud/PowerWeChat/v3/src/work/externalContact/momentStrategy"
-	"github.com/ArtisanCloud/PowerWeChat/v3/src/work/externalContact/school"
-	"github.com/ArtisanCloud/PowerWeChat/v3/src/work/externalContact/statistics"
-	tag2 "github.com/ArtisanCloud/PowerWeChat/v3/src/work/externalContact/tag"
-	"github.com/ArtisanCloud/PowerWeChat/v3/src/work/externalContact/transfer"
-	"github.com/ArtisanCloud/PowerWeChat/v3/src/work/groupRobot"
-	"github.com/ArtisanCloud/PowerWeChat/v3/src/work/invoice"
-	"github.com/ArtisanCloud/PowerWeChat/v3/src/work/jssdk"
-	"github.com/ArtisanCloud/PowerWeChat/v3/src/work/media"
-	"github.com/ArtisanCloud/PowerWeChat/v3/src/work/menu"
-	"github.com/ArtisanCloud/PowerWeChat/v3/src/work/message"
-	"github.com/ArtisanCloud/PowerWeChat/v3/src/work/message/appChat"
-	externalContact2 "github.com/ArtisanCloud/PowerWeChat/v3/src/work/message/externalContact"
-	linkedCorp2 "github.com/ArtisanCloud/PowerWeChat/v3/src/work/message/linkedCorp"
-	miniProgram "github.com/ArtisanCloud/PowerWeChat/v3/src/work/miniProgram"
-	msgaudit "github.com/ArtisanCloud/PowerWeChat/v3/src/work/msgAudit"
-	"github.com/ArtisanCloud/PowerWeChat/v3/src/work/oa"
-	"github.com/ArtisanCloud/PowerWeChat/v3/src/work/oa/calendar"
-	"github.com/ArtisanCloud/PowerWeChat/v3/src/work/oa/dial"
-	"github.com/ArtisanCloud/PowerWeChat/v3/src/work/oa/journal"
-	"github.com/ArtisanCloud/PowerWeChat/v3/src/work/oa/living"
-	"github.com/ArtisanCloud/PowerWeChat/v3/src/work/oa/meeting"
-	"github.com/ArtisanCloud/PowerWeChat/v3/src/work/oa/meetingroom"
-	"github.com/ArtisanCloud/PowerWeChat/v3/src/work/oa/pstncc"
-	"github.com/ArtisanCloud/PowerWeChat/v3/src/work/oa/schedule"
-	"github.com/ArtisanCloud/PowerWeChat/v3/src/work/oa/webdrive"
-	"github.com/ArtisanCloud/PowerWeChat/v3/src/work/oauth"
-	"github.com/ArtisanCloud/PowerWeChat/v3/src/work/server"
-	"github.com/ArtisanCloud/PowerWeChat/v3/src/work/user"
-	"github.com/ArtisanCloud/PowerWeChat/v3/src/work/user/batchJobs"
-	"github.com/ArtisanCloud/PowerWeChat/v3/src/work/user/exportJobs"
-	"github.com/ArtisanCloud/PowerWeChat/v3/src/work/user/linkedCorp"
-	"github.com/ArtisanCloud/PowerWeChat/v3/src/work/user/tag"
+	"github.com/px94/PowerWeChat/v3/src/kernel"
+	"github.com/px94/PowerWeChat/v3/src/kernel/providers"
+	miniProgram2 "github.com/px94/PowerWeChat/v3/src/miniProgram"
+	"github.com/px94/PowerWeChat/v3/src/work/accountService"
+	"github.com/px94/PowerWeChat/v3/src/work/accountService/customer"
+	message3 "github.com/px94/PowerWeChat/v3/src/work/accountService/message"
+	"github.com/px94/PowerWeChat/v3/src/work/accountService/serviceState"
+	"github.com/px94/PowerWeChat/v3/src/work/accountService/servicer"
+	tag3 "github.com/px94/PowerWeChat/v3/src/work/accountService/tag"
+	"github.com/px94/PowerWeChat/v3/src/work/agent"
+	"github.com/px94/PowerWeChat/v3/src/work/agent/workbench"
+	"github.com/px94/PowerWeChat/v3/src/work/auth"
+	"github.com/px94/PowerWeChat/v3/src/work/base"
+	"github.com/px94/PowerWeChat/v3/src/work/corpgroup"
+	"github.com/px94/PowerWeChat/v3/src/work/department"
+	"github.com/px94/PowerWeChat/v3/src/work/externalContact"
+	"github.com/px94/PowerWeChat/v3/src/work/externalContact/contactWay"
+	"github.com/px94/PowerWeChat/v3/src/work/externalContact/customerStrategy"
+	"github.com/px94/PowerWeChat/v3/src/work/externalContact/groupChat"
+	"github.com/px94/PowerWeChat/v3/src/work/externalContact/groupWelcomeTemplate"
+	"github.com/px94/PowerWeChat/v3/src/work/externalContact/messageTemplate"
+	"github.com/px94/PowerWeChat/v3/src/work/externalContact/moment"
+	"github.com/px94/PowerWeChat/v3/src/work/externalContact/momentStrategy"
+	"github.com/px94/PowerWeChat/v3/src/work/externalContact/school"
+	"github.com/px94/PowerWeChat/v3/src/work/externalContact/statistics"
+	tag2 "github.com/px94/PowerWeChat/v3/src/work/externalContact/tag"
+	"github.com/px94/PowerWeChat/v3/src/work/externalContact/transfer"
+	"github.com/px94/PowerWeChat/v3/src/work/groupRobot"
+	"github.com/px94/PowerWeChat/v3/src/work/invoice"
+	"github.com/px94/PowerWeChat/v3/src/work/jssdk"
+	"github.com/px94/PowerWeChat/v3/src/work/media"
+	"github.com/px94/PowerWeChat/v3/src/work/menu"
+	"github.com/px94/PowerWeChat/v3/src/work/message"
+	"github.com/px94/PowerWeChat/v3/src/work/message/appChat"
+	externalContact2 "github.com/px94/PowerWeChat/v3/src/work/message/externalContact"
+	linkedCorp2 "github.com/px94/PowerWeChat/v3/src/work/message/linkedCorp"
+	miniProgram "github.com/px94/PowerWeChat/v3/src/work/miniProgram"
+	msgaudit "github.com/px94/PowerWeChat/v3/src/work/msgAudit"
+	"github.com/px94/PowerWeChat/v3/src/work/oa"
+	"github.com/px94/PowerWeChat/v3/src/work/oa/calendar"
+	"github.com/px94/PowerWeChat/v3/src/work/oa/dial"
+	"github.com/px94/PowerWeChat/v3/src/work/oa/journal"
+	"github.com/px94/PowerWeChat/v3/src/work/oa/living"
+	"github.com/px94/PowerWeChat/v3/src/work/oa/meeting"
+	"github.com/px94/PowerWeChat/v3/src/work/oa/meetingroom"
+	"github.com/px94/PowerWeChat/v3/src/work/oa/pstncc"
+	"github.com/px94/PowerWeChat/v3/src/work/oa/schedule"
+	"github.com/px94/PowerWeChat/v3/src/work/oa/webdrive"
+	"github.com/px94/PowerWeChat/v3/src/work/oauth"
+	"github.com/px94/PowerWeChat/v3/src/work/server"
+	"github.com/px94/PowerWeChat/v3/src/work/user"
+	"github.com/px94/PowerWeChat/v3/src/work/user/batchJobs"
+	"github.com/px94/PowerWeChat/v3/src/work/user/exportJobs"
+	"github.com/px94/PowerWeChat/v3/src/work/user/linkedCorp"
+	"github.com/px94/PowerWeChat/v3/src/work/user/tag"
 )
 
 type Work struct {
@@ -201,7 +201,7 @@ func NewWork(config *UserConfig) (*Work, error) {
 		ServiceContainer: container,
 	}
 
-	//-------------- global app config --------------
+	// -------------- global app config --------------
 	// global app config
 	app.Config = providers.RegisterConfigProvider(app)
 
@@ -215,42 +215,42 @@ func NewWork(config *UserConfig) (*Work, error) {
 		return nil, err
 	}
 
-	//-------------- register auth --------------
+	// -------------- register auth --------------
 	app.AccessToken, err = auth.RegisterProvider(app)
 	if err != nil {
 		return nil, err
 	}
-	//-------------- register Base --------------
+	// -------------- register Base --------------
 	app.Base, err = base.RegisterProvider(app)
 	if err != nil {
 		return nil, err
 	}
 
-	//-------------- register JSSDK --------------
+	// -------------- register JSSDK --------------
 	app.JSSDK, err = jssdk.RegisterProvider(app)
 	if err != nil {
 		return nil, err
 	}
 
-	//-------------- register oauth --------------
+	// -------------- register oauth --------------
 	app.OAuth, err = oauth.RegisterProvider(app)
 	if err != nil {
 		return nil, err
 	}
-	//-------------- register agent --------------
+	// -------------- register agent --------------
 	app.Agent,
 		app.AgentWorkbench, err = agent.RegisterProvider(app)
 	if err != nil {
 		return nil, err
 	}
 
-	//-------------- register Department --------------
+	// -------------- register Department --------------
 	app.Department, err = department.RegisterProvider(app)
 	if err != nil {
 		return nil, err
 	}
 
-	//-------------- register Message --------------
+	// -------------- register Message --------------
 	app.Message, app.Messager,
 		app.MessageAppChat,
 		app.MessageExternalContact,
@@ -259,12 +259,12 @@ func NewWork(config *UserConfig) (*Work, error) {
 		return nil, err
 	}
 
-	//-------------- register Encryptor --------------
+	// -------------- register Encryptor --------------
 	app.Encryptor, app.Server, err = server.RegisterProvider(app)
 	if err != nil {
 		return nil, err
 	}
-	//-------------- register user --------------
+	// -------------- register user --------------
 	app.User,
 		app.UserBatchJobs,
 		app.UserExportJobs,
@@ -274,7 +274,7 @@ func NewWork(config *UserConfig) (*Work, error) {
 		return nil, err
 	}
 
-	//-------------- register external contact --------------
+	// -------------- register external contact --------------
 	app.ExternalContact,
 		app.ExternalContactContactWay,
 		app.ExternalContactCustomerStrategy,
@@ -291,7 +291,7 @@ func NewWork(config *UserConfig) (*Work, error) {
 		return nil, err
 	}
 
-	//-------------- register account service --------------
+	// -------------- register account service --------------
 	app.AccountService,
 		app.AccountServiceCustomer,
 		app.AccountServiceMessage,
@@ -302,19 +302,19 @@ func NewWork(config *UserConfig) (*Work, error) {
 		return nil, err
 	}
 
-	//-------------- media --------------
+	// -------------- media --------------
 	app.Media, err = media.RegisterProvider(app)
 	if err != nil {
 		return nil, err
 	}
 
-	//-------------- menu --------------
+	// -------------- menu --------------
 	app.Menu, err = menu.RegisterProvider(app)
 	if err != nil {
 		return nil, err
 	}
 
-	//-------------- oa --------------
+	// -------------- oa --------------
 	app.OA,
 		app.OACalendar,
 		app.OADial,
@@ -329,19 +329,19 @@ func NewWork(config *UserConfig) (*Work, error) {
 		return nil, err
 	}
 
-	//-------------- msg audit --------------
+	// -------------- msg audit --------------
 	app.MsgAudit, err = msgaudit.RegisterProvider(app)
 	if err != nil {
 		return nil, err
 	}
 
-	//-------------- corp group --------------
+	// -------------- corp group --------------
 	app.CorpGroup, err = corpgroup.RegisterProvider(app)
 	if err != nil {
 		return nil, err
 	}
 
-	//-------------- invoice --------------
+	// -------------- invoice --------------
 	app.Invoice, err = invoice.RegisterProvider(app)
 	if err != nil {
 		return nil, err

@@ -6,7 +6,7 @@ import (
 	"crypto/sha256"
 	"encoding/hex"
 	"fmt"
-	"github.com/ArtisanCloud/PowerWeChat/v3/src/kernel/power"
+	"github.com/px94/PowerWeChat/v3/src/kernel/power"
 	"reflect"
 	"sort"
 	"strings"
@@ -21,7 +21,7 @@ func PaymentV2ParamsJoinBackup(params *power.HashMap, key string) string {
 		arr = append(arr, k)
 	}
 	sort.Strings(arr)
-	//for i, k := range arr {
+	// for i, k := range arr {
 	for i := 0; i < len(arr); i++ {
 		k := arr[i]
 		v := (*params)[k]
@@ -41,7 +41,7 @@ func PaymentV2ParamsJoinBackup(params *power.HashMap, key string) string {
 			arr[i] = fmt.Sprintf("%s=%f", k, v)
 			break
 		}
-		//arr[i] = fmt.Sprintf("%s=%x", k, (*params)[k])
+		// arr[i] = fmt.Sprintf("%s=%x", k, (*params)[k])
 	}
 	return fmt.Sprintf("%s&key=%s", strings.Join(arr, "&"), key)
 }

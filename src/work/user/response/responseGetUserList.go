@@ -2,13 +2,13 @@ package response
 
 import (
 	"github.com/ArtisanCloud/PowerSocialite/v3/src/models"
-	"github.com/ArtisanCloud/PowerWeChat/v3/src/kernel/response"
+	"github.com/px94/PowerWeChat/v3/src/kernel/response"
 )
 
 type ResponseGetUserList struct {
 	response.ResponseWork
 
-	//UserList []*response2.RequestUserDetail `json:"userlist"`
+	// UserList []*response2.RequestUserDetail `json:"userlist"`
 	UserList []*models.Employee `json:"userlist"`
 }
 

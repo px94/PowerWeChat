@@ -1,8 +1,8 @@
 package response
 
 import (
-	"github.com/ArtisanCloud/PowerWeChat/v3/src/kernel/models"
-	"github.com/ArtisanCloud/PowerWeChat/v3/src/kernel/response"
+	"github.com/px94/PowerWeChat/v3/src/kernel/models"
+	"github.com/px94/PowerWeChat/v3/src/kernel/response"
 )
 
 type ResponseDepartmentList struct {

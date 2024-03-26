@@ -2,7 +2,7 @@ package messages
 
 import (
 	"github.com/ArtisanCloud/PowerLibs/v3/object"
-	"github.com/ArtisanCloud/PowerWeChat/v3/src/kernel/power"
+	"github.com/px94/PowerWeChat/v3/src/kernel/power"
 )
 
 type NewsArticle struct {
@@ -20,8 +20,8 @@ func NewNewsArticle(items *power.HashMap) *NewsArticle {
 	}
 
 	m.JsonAliases = &object.HashMap{
-		//"content_source_url": "source_url",
-		//"show_cover_pic":     "show_cover",
+		// "content_source_url": "source_url",
+		// "show_cover_pic":     "show_cover",
 	}
 
 	m.SetAttribute("required", []string{

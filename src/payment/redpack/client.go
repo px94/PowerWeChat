@@ -3,9 +3,9 @@ package redpack
 import (
 	"context"
 	"github.com/ArtisanCloud/PowerLibs/v3/object"
-	payment "github.com/ArtisanCloud/PowerWeChat/v3/src/payment/kernel"
-	"github.com/ArtisanCloud/PowerWeChat/v3/src/payment/redpack/request"
-	"github.com/ArtisanCloud/PowerWeChat/v3/src/payment/redpack/response"
+	payment "github.com/px94/PowerWeChat/v3/src/payment/kernel"
+	"github.com/px94/PowerWeChat/v3/src/payment/redpack/request"
+	"github.com/px94/PowerWeChat/v3/src/payment/redpack/response"
 	"net/http"
 )
 
@@ -111,7 +111,7 @@ func (comp *Client) SendGroup(ctx context.Context, data *request.RequestSendGrou
 		data.MchID = config.GetString("mch_id", "")
 	}
 
-	//params, err := object.StructToHashMapWithTag(data,"json")
+	// params, err := object.StructToHashMapWithTag(data,"json")
 	params, err := object.StructToHashMap(data)
 
 	endpoint := comp.Wrap("/mmpaymkttransfers/sendgroupredpack")

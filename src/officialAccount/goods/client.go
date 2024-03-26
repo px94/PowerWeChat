@@ -3,9 +3,9 @@ package goods
 import (
 	"context"
 	"github.com/ArtisanCloud/PowerLibs/v3/object"
-	"github.com/ArtisanCloud/PowerWeChat/v3/src/kernel"
-	"github.com/ArtisanCloud/PowerWeChat/v3/src/officialAccount/goods/request"
-	"github.com/ArtisanCloud/PowerWeChat/v3/src/officialAccount/goods/response"
+	"github.com/px94/PowerWeChat/v3/src/kernel"
+	"github.com/px94/PowerWeChat/v3/src/officialAccount/goods/request"
+	"github.com/px94/PowerWeChat/v3/src/officialAccount/goods/response"
 )
 
 type Client struct {

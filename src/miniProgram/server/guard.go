@@ -1,7 +1,7 @@
 package server
 
 import (
-	"github.com/ArtisanCloud/PowerWeChat/v3/src/kernel"
+	"github.com/px94/PowerWeChat/v3/src/kernel"
 )
 
 type Guard struct {
@@ -9,7 +9,7 @@ type Guard struct {
 }
 
 func NewGuard(app *kernel.ApplicationInterface) *Guard {
-	//config := (*app).GetContainer().GetConfig()
+	// config := (*app).GetContainer().GetConfig()
 
 	guard := &Guard{
 		kernel.NewServerGuard(app),
@@ -22,7 +22,7 @@ func NewGuard(app *kernel.ApplicationInterface) *Guard {
 
 }
 
-//func (guard *Guard) DecryptEvent(content string) (bufDecrypted []byte, err error) {
+// func (guard *Guard) DecryptEvent(content string) (bufDecrypted []byte, err error) {
 //
 //	encryptor := (*guard.App).GetComponent("Encryptor").(*miniProgram.Encryptor)
 //
@@ -33,4 +33,4 @@ func NewGuard(app *kernel.ApplicationInterface) *Guard {
 //
 //	return bufDecrypted, err
 //
-//}
+// }

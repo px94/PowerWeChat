@@ -4,11 +4,11 @@ import (
 	"context"
 	"errors"
 	"github.com/ArtisanCloud/PowerLibs/v3/object"
-	"github.com/ArtisanCloud/PowerWeChat/v3/src/kernel"
-	"github.com/ArtisanCloud/PowerWeChat/v3/src/kernel/contract"
-	response2 "github.com/ArtisanCloud/PowerWeChat/v3/src/kernel/response"
-	"github.com/ArtisanCloud/PowerWeChat/v3/src/officialAccount/customerService/request"
-	"github.com/ArtisanCloud/PowerWeChat/v3/src/officialAccount/customerService/response"
+	"github.com/px94/PowerWeChat/v3/src/kernel"
+	"github.com/px94/PowerWeChat/v3/src/kernel/contract"
+	response2 "github.com/px94/PowerWeChat/v3/src/kernel/response"
+	"github.com/px94/PowerWeChat/v3/src/officialAccount/customerService/request"
+	"github.com/px94/PowerWeChat/v3/src/officialAccount/customerService/response"
 )
 
 type Client struct {
@@ -176,7 +176,7 @@ func (comp *Client) HideTypingStatusToUser(ctx context.Context, openID string) (
 func (comp *Client) Messages(ctx context.Context, data *request.RequestMessages) (*response.ResponseMessages, error) {
 	result := &response.ResponseMessages{}
 
-	//params, err := object.StructToHashMapWithTag(data, "json")
+	// params, err := object.StructToHashMapWithTag(data, "json")
 	params, err := object.StructToHashMap(data)
 	if err != nil {
 		return nil, err

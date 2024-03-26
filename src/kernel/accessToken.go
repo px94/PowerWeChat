@@ -10,9 +10,9 @@ import (
 	"github.com/ArtisanCloud/PowerLibs/v3/http/helper"
 	contract2 "github.com/ArtisanCloud/PowerLibs/v3/logger/contract"
 	"github.com/ArtisanCloud/PowerLibs/v3/object"
-	"github.com/ArtisanCloud/PowerWeChat/v3/src/kernel/contract"
-	request2 "github.com/ArtisanCloud/PowerWeChat/v3/src/kernel/request"
-	response2 "github.com/ArtisanCloud/PowerWeChat/v3/src/kernel/response"
+	"github.com/px94/PowerWeChat/v3/src/kernel/contract"
+	request2 "github.com/px94/PowerWeChat/v3/src/kernel/request"
+	response2 "github.com/px94/PowerWeChat/v3/src/kernel/response"
 	"net/http"
 	"time"
 )
@@ -250,9 +250,9 @@ func (accessToken *AccessToken) sendRequest(credential *object.StringMap) (*resp
 		if (*options)["json"] != nil {
 			df.Json((*options)["json"])
 		}
-		//if (*options)["form_params"] != nil {
+		// if (*options)["form_params"] != nil {
 		//	df.Json((*options)["form_params"])
-		//}
+		// }
 	}
 
 	rs, err := df.Request()
@@ -293,7 +293,7 @@ func (accessToken *AccessToken) GetDefaultCacheKey() string {
 	cacheKey := accessToken.CachePrefix + hex.EncodeToString(buffer[:])
 
 	// tbf
-	//fmt2.Dump(cacheKey)
+	// fmt2.Dump(cacheKey)
 
 	return cacheKey
 }

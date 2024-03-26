@@ -1,12 +1,12 @@
 package accountService
 
 import (
-	"github.com/ArtisanCloud/PowerWeChat/v3/src/kernel"
-	"github.com/ArtisanCloud/PowerWeChat/v3/src/work/accountService/customer"
-	"github.com/ArtisanCloud/PowerWeChat/v3/src/work/accountService/message"
-	"github.com/ArtisanCloud/PowerWeChat/v3/src/work/accountService/serviceState"
-	"github.com/ArtisanCloud/PowerWeChat/v3/src/work/accountService/servicer"
-	"github.com/ArtisanCloud/PowerWeChat/v3/src/work/accountService/tag"
+	"github.com/px94/PowerWeChat/v3/src/kernel"
+	"github.com/px94/PowerWeChat/v3/src/work/accountService/customer"
+	"github.com/px94/PowerWeChat/v3/src/work/accountService/message"
+	"github.com/px94/PowerWeChat/v3/src/work/accountService/serviceState"
+	"github.com/px94/PowerWeChat/v3/src/work/accountService/servicer"
+	"github.com/px94/PowerWeChat/v3/src/work/accountService/tag"
 )
 
 func RegisterProvider(app kernel.ApplicationInterface) (
@@ -18,7 +18,7 @@ func RegisterProvider(app kernel.ApplicationInterface) (
 	*tag.Client,
 	error,
 ) {
-	//config := app.GetConfig()
+	// config := app.GetConfig()
 
 	Client, err := NewClient(app)
 	if err != nil {

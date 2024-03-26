@@ -1,10 +1,6 @@
-module github.com/ArtisanCloud/PowerWeChat/v3
+module github.com/px94/PowerWechat/v3
 
 go 1.17
-
-//replace github.com/ArtisanCloud/PowerLibs/v3 => ../PowerLibs
-
-//replace github.com/ArtisanCloud/PowerSocialite/v3 => ../PowerSocialite
 
 require (
 	github.com/ArtisanCloud/PowerLibs/v3 v3.1.1

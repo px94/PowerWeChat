@@ -2,7 +2,7 @@ package messages
 
 import (
 	"github.com/ArtisanCloud/PowerLibs/v3/object"
-	"github.com/ArtisanCloud/PowerWeChat/v3/src/kernel/power"
+	"github.com/px94/PowerWeChat/v3/src/kernel/power"
 )
 
 type News struct {
@@ -57,7 +57,7 @@ func (msg *News) OverrideToXmlArray() {
 		if getItem != nil {
 			arrayItems := getItem.([]*object.HashMap)
 			for _, item := range arrayItems {
-				//newItems := NewNewsItem(item)
+				// newItems := NewNewsItem(item)
 				items = append(items, &object.HashMap{
 					"item": item,
 				})

@@ -1,9 +1,9 @@
 package handlers
 
 import (
-	"github.com/ArtisanCloud/PowerWeChat/v3/src/kernel"
-	"github.com/ArtisanCloud/PowerWeChat/v3/src/kernel/contract"
-	"github.com/ArtisanCloud/PowerWeChat/v3/src/kernel/decorators"
+	"github.com/px94/PowerWeChat/v3/src/kernel"
+	"github.com/px94/PowerWeChat/v3/src/kernel/contract"
+	"github.com/px94/PowerWeChat/v3/src/kernel/decorators"
 	"net/http"
 )
 
@@ -28,9 +28,9 @@ func (handler *EchoStrHandler) Handle(request *http.Request, header contract.Eve
 	query := request.URL.Query()
 	strDecrypted := query.Get("echostr")
 
-	//strDecrypted := "wAHjjtg5VmVwpLzy7YoJXGT1SAVvFACAZbThfdeq2bWrhDCfDv6o9JWMImq2N7SPKiG8Pci+2W7pP9GlpELVEA=="
-	//strDecrypted = url.QueryEscape(strDecrypted)
-	//fmt.Dump(request.RequestURI, strDecrypted)
+	// strDecrypted := "wAHjjtg5VmVwpLzy7YoJXGT1SAVvFACAZbThfdeq2bWrhDCfDv6o9JWMImq2N7SPKiG8Pci+2W7pP9GlpELVEA=="
+	// strDecrypted = url.QueryEscape(strDecrypted)
+	// fmt.Dump(request.RequestURI, strDecrypted)
 	if strDecrypted != "" {
 		str, err := encryptor.VerifyUrl(
 			strDecrypted,

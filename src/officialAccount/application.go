@@ -5,39 +5,39 @@ import (
 	"github.com/ArtisanCloud/PowerLibs/v3/logger/contract"
 	"github.com/ArtisanCloud/PowerLibs/v3/object"
 	providers2 "github.com/ArtisanCloud/PowerSocialite/v3/src/providers"
-	"github.com/ArtisanCloud/PowerWeChat/v3/src/basicService/jssdk"
-	"github.com/ArtisanCloud/PowerWeChat/v3/src/basicService/media"
-	"github.com/ArtisanCloud/PowerWeChat/v3/src/basicService/qrCode"
-	"github.com/ArtisanCloud/PowerWeChat/v3/src/basicService/subscribeMessage"
-	"github.com/ArtisanCloud/PowerWeChat/v3/src/basicService/url"
-	"github.com/ArtisanCloud/PowerWeChat/v3/src/kernel"
-	"github.com/ArtisanCloud/PowerWeChat/v3/src/kernel/providers"
-	"github.com/ArtisanCloud/PowerWeChat/v3/src/officialAccount/auth"
-	"github.com/ArtisanCloud/PowerWeChat/v3/src/officialAccount/autoReply"
-	"github.com/ArtisanCloud/PowerWeChat/v3/src/officialAccount/base"
-	"github.com/ArtisanCloud/PowerWeChat/v3/src/officialAccount/broadcasting"
-	"github.com/ArtisanCloud/PowerWeChat/v3/src/officialAccount/card"
-	"github.com/ArtisanCloud/PowerWeChat/v3/src/officialAccount/comment"
-	"github.com/ArtisanCloud/PowerWeChat/v3/src/officialAccount/customerService"
-	"github.com/ArtisanCloud/PowerWeChat/v3/src/officialAccount/customerService/session"
-	"github.com/ArtisanCloud/PowerWeChat/v3/src/officialAccount/dataCube"
-	"github.com/ArtisanCloud/PowerWeChat/v3/src/officialAccount/device"
-	"github.com/ArtisanCloud/PowerWeChat/v3/src/officialAccount/goods"
-	"github.com/ArtisanCloud/PowerWeChat/v3/src/officialAccount/guide"
-	"github.com/ArtisanCloud/PowerWeChat/v3/src/officialAccount/material"
-	"github.com/ArtisanCloud/PowerWeChat/v3/src/officialAccount/menu"
-	"github.com/ArtisanCloud/PowerWeChat/v3/src/officialAccount/oauth"
-	"github.com/ArtisanCloud/PowerWeChat/v3/src/officialAccount/ocr"
-	"github.com/ArtisanCloud/PowerWeChat/v3/src/officialAccount/poi"
-	"github.com/ArtisanCloud/PowerWeChat/v3/src/officialAccount/publish"
-	"github.com/ArtisanCloud/PowerWeChat/v3/src/officialAccount/semantic"
-	"github.com/ArtisanCloud/PowerWeChat/v3/src/officialAccount/server"
-	"github.com/ArtisanCloud/PowerWeChat/v3/src/officialAccount/shakeAround"
-	"github.com/ArtisanCloud/PowerWeChat/v3/src/officialAccount/store"
-	"github.com/ArtisanCloud/PowerWeChat/v3/src/officialAccount/templateMessage"
-	"github.com/ArtisanCloud/PowerWeChat/v3/src/officialAccount/user"
-	"github.com/ArtisanCloud/PowerWeChat/v3/src/officialAccount/user/tag"
-	"github.com/ArtisanCloud/PowerWeChat/v3/src/officialAccount/wifi"
+	"github.com/px94/PowerWeChat/v3/src/basicService/jssdk"
+	"github.com/px94/PowerWeChat/v3/src/basicService/media"
+	"github.com/px94/PowerWeChat/v3/src/basicService/qrCode"
+	"github.com/px94/PowerWeChat/v3/src/basicService/subscribeMessage"
+	"github.com/px94/PowerWeChat/v3/src/basicService/url"
+	"github.com/px94/PowerWeChat/v3/src/kernel"
+	"github.com/px94/PowerWeChat/v3/src/kernel/providers"
+	"github.com/px94/PowerWeChat/v3/src/officialAccount/auth"
+	"github.com/px94/PowerWeChat/v3/src/officialAccount/autoReply"
+	"github.com/px94/PowerWeChat/v3/src/officialAccount/base"
+	"github.com/px94/PowerWeChat/v3/src/officialAccount/broadcasting"
+	"github.com/px94/PowerWeChat/v3/src/officialAccount/card"
+	"github.com/px94/PowerWeChat/v3/src/officialAccount/comment"
+	"github.com/px94/PowerWeChat/v3/src/officialAccount/customerService"
+	"github.com/px94/PowerWeChat/v3/src/officialAccount/customerService/session"
+	"github.com/px94/PowerWeChat/v3/src/officialAccount/dataCube"
+	"github.com/px94/PowerWeChat/v3/src/officialAccount/device"
+	"github.com/px94/PowerWeChat/v3/src/officialAccount/goods"
+	"github.com/px94/PowerWeChat/v3/src/officialAccount/guide"
+	"github.com/px94/PowerWeChat/v3/src/officialAccount/material"
+	"github.com/px94/PowerWeChat/v3/src/officialAccount/menu"
+	"github.com/px94/PowerWeChat/v3/src/officialAccount/oauth"
+	"github.com/px94/PowerWeChat/v3/src/officialAccount/ocr"
+	"github.com/px94/PowerWeChat/v3/src/officialAccount/poi"
+	"github.com/px94/PowerWeChat/v3/src/officialAccount/publish"
+	"github.com/px94/PowerWeChat/v3/src/officialAccount/semantic"
+	"github.com/px94/PowerWeChat/v3/src/officialAccount/server"
+	"github.com/px94/PowerWeChat/v3/src/officialAccount/shakeAround"
+	"github.com/px94/PowerWeChat/v3/src/officialAccount/store"
+	"github.com/px94/PowerWeChat/v3/src/officialAccount/templateMessage"
+	"github.com/px94/PowerWeChat/v3/src/officialAccount/user"
+	"github.com/px94/PowerWeChat/v3/src/officialAccount/user/tag"
+	"github.com/px94/PowerWeChat/v3/src/officialAccount/wifi"
 )
 
 type OfficialAccount struct {
@@ -153,7 +153,7 @@ func NewOfficialAccount(config *UserConfig, extraInfos ...*kernel.ExtraInfo) (*O
 		ServiceContainer: container,
 	}
 
-	//-------------- global app config --------------
+	// -------------- global app config --------------
 	// global app config
 	app.Config = providers.RegisterConfigProvider(app)
 
@@ -167,166 +167,166 @@ func NewOfficialAccount(config *UserConfig, extraInfos ...*kernel.ExtraInfo) (*O
 		return nil, err
 	}
 
-	//-------------- register auth --------------
+	// -------------- register auth --------------
 	app.AccessToken, err = auth.RegisterProvider(app)
 	if err != nil {
 		return nil, err
 	}
-	//-------------- register Base --------------
+	// -------------- register Base --------------
 	app.Base, err = base.RegisterProvider(app)
 	if err != nil {
 		return nil, err
 	}
 
-	//-------------- media --------------
+	// -------------- media --------------
 	app.Media, err = media.RegisterProvider(app)
 	if err != nil {
 		return nil, err
 	}
 
-	//-------------- register QRCode --------------
+	// -------------- register QRCode --------------
 	app.QRCode, err = qrCode.RegisterProvider(app)
 	if err != nil {
 		return nil, err
 	}
 
-	//-------------- register URL --------------
+	// -------------- register URL --------------
 	app.URL, err = url.RegisterProvider(app)
 	if err != nil {
 		return nil, err
 	}
-	//-------------- register JSSDK --------------
+	// -------------- register JSSDK --------------
 	app.JSSDK, err = jssdk.RegisterProvider(app)
 	if err != nil {
 		return nil, err
 	}
-	//-------------- register SubscribeMessage --------------
+	// -------------- register SubscribeMessage --------------
 	app.SubscribeMessage, err = subscribeMessage.RegisterProvider(app)
 	if err != nil {
 		return nil, err
 	}
 
-	//-------------- register Menu --------------
+	// -------------- register Menu --------------
 	app.Menu, err = menu.RegisterProvider(app)
 	if err != nil {
 		return nil, err
 	}
-	//-------------- register Material --------------
+	// -------------- register Material --------------
 	app.Material, err = material.RegisterProvider(app)
 	if err != nil {
 		return nil, err
 	}
-	//-------------- register CustomerService --------------
+	// -------------- register CustomerService --------------
 	app.CustomerService, app.CustomerServiceSession, err = customerService.RegisterProvider(app)
 	if err != nil {
 		return nil, err
 	}
-	//-------------- register Semantic --------------
+	// -------------- register Semantic --------------
 	app.Semantic, err = semantic.RegisterProvider(app)
 	if err != nil {
 		return nil, err
 	}
-	//-------------- register Encryptor and Server --------------
+	// -------------- register Encryptor and Server --------------
 	app.Encryptor, app.Server, err = server.RegisterProvider(app)
 	if err != nil {
 		return nil, err
 	}
-	//-------------- register User --------------
+	// -------------- register User --------------
 	app.User, app.UserTag, err = user.RegisterProvider(app)
 	if err != nil {
 		return nil, err
 	}
-	//-------------- register Menu --------------
+	// -------------- register Menu --------------
 	app.Menu, err = menu.RegisterProvider(app)
 	if err != nil {
 		return nil, err
 	}
-	//-------------- register TemplateMessage --------------
+	// -------------- register TemplateMessage --------------
 	app.TemplateMessage, err = templateMessage.RegisterProvider(app)
 	if err != nil {
 		return nil, err
 	}
-	//-------------- register Material --------------
+	// -------------- register Material --------------
 	app.Material, err = material.RegisterProvider(app)
 	if err != nil {
 		return nil, err
 	}
-	//-------------- register CustomerService --------------
+	// -------------- register CustomerService --------------
 	app.CustomerService, app.CustomerServiceSession, err = customerService.RegisterProvider(app)
 	if err != nil {
 		return nil, err
 	}
-	//-------------- register Semantic --------------
+	// -------------- register Semantic --------------
 	app.Semantic, err = semantic.RegisterProvider(app)
 	if err != nil {
 		return nil, err
 	}
-	//-------------- register DataCube --------------
+	// -------------- register DataCube --------------
 	app.DataCube, err = dataCube.RegisterProvider(app)
 	if err != nil {
 		return nil, err
 	}
-	//-------------- register AutoReply --------------
+	// -------------- register AutoReply --------------
 	app.AutoReply, err = autoReply.RegisterProvider(app)
 	if err != nil {
 		return nil, err
 	}
-	//-------------- register Broadcasting --------------
+	// -------------- register Broadcasting --------------
 	app.Broadcasting, err = broadcasting.RegisterProvider(app)
 	if err != nil {
 		return nil, err
 	}
-	//-------------- register Card --------------
+	// -------------- register Card --------------
 	app.Card, err = card.RegisterProvider(app)
 	if err != nil {
 		return nil, err
 	}
-	//-------------- register Device --------------
+	// -------------- register Device --------------
 	app.Device, err = device.RegisterProvider(app)
 	if err != nil {
 		return nil, err
 	}
-	//-------------- register ShakeAround --------------
+	// -------------- register ShakeAround --------------
 	app.ShakeAround, err = shakeAround.RegisterProvider(app)
 	if err != nil {
 		return nil, err
 	}
-	//-------------- register POI --------------
+	// -------------- register POI --------------
 	app.POI, err = poi.RegisterProvider(app)
-	//-------------- register Publish --------------
+	// -------------- register Publish --------------
 	app.Publish, err = publish.RegisterProvider(app)
 	if err != nil {
 		return nil, err
 	}
-	//-------------- register Store --------------
+	// -------------- register Store --------------
 	app.Store, err = store.RegisterProvider(app)
 	if err != nil {
 		return nil, err
 	}
-	//-------------- register Comment --------------
+	// -------------- register Comment --------------
 	app.Comment, err = comment.RegisterProvider(app)
 	if err != nil {
 		return nil, err
 	}
-	//-------------- register OCR --------------
+	// -------------- register OCR --------------
 	app.OCR, err = ocr.RegisterProvider(app)
 	if err != nil {
 		return nil, err
 	}
-	//-------------- register Goods --------------
+	// -------------- register Goods --------------
 	app.Goods, err = goods.RegisterProvider(app)
 	if err != nil {
 		return nil, err
 	}
-	//-------------- register OAuth --------------
+	// -------------- register OAuth --------------
 	app.OAuth = oauth.RegisterProvider(app)
-	//-------------- register wifi --------------
+	// -------------- register wifi --------------
 	app.Wifi, app.WifiCard, app.WifiDevice, app.WifiShop, err = wifi.RegisterProvider(app)
 	if err != nil {
 		return nil, err
 	}
 
-	//-------------- register Guide --------------
+	// -------------- register Guide --------------
 	app.Guide, err = guide.RegisterProvider(app)
 	if err != nil {
 		return nil, err

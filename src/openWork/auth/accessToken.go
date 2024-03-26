@@ -5,7 +5,7 @@ package auth
 import (
 	"github.com/ArtisanCloud/PowerLibs/v3/object"
 	"github.com/ArtisanCloud/PowerLibs/v3/security"
-	"github.com/ArtisanCloud/PowerWeChat/v3/src/kernel"
+	"github.com/px94/PowerWeChat/v3/src/kernel"
 	"net/http"
 )
 
@@ -41,7 +41,7 @@ func (accessToken *AccessToken) OverrideGetCredentials() {
 	accessToken.GetCredentials = func() *object.StringMap {
 		config := (*accessToken.App).GetContainer().GetConfig()
 
-		//服务商的corpid
+		// 服务商的corpid
 		corpID := (*config)["corp_id"].(string)
 		secret := (*config)["secret"].(string)
 

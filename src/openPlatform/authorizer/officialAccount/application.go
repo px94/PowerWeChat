@@ -1,11 +1,11 @@
 package officialAccount
 
 import (
-	"github.com/ArtisanCloud/PowerWeChat/v3/src/kernel"
-	"github.com/ArtisanCloud/PowerWeChat/v3/src/kernel/providers"
-	"github.com/ArtisanCloud/PowerWeChat/v3/src/officialAccount"
-	"github.com/ArtisanCloud/PowerWeChat/v3/src/openPlatform/authorizer/officialAccount/account"
-	"github.com/ArtisanCloud/PowerWeChat/v3/src/openPlatform/authorizer/officialAccount/miniProgram"
+	"github.com/px94/PowerWeChat/v3/src/kernel"
+	"github.com/px94/PowerWeChat/v3/src/kernel/providers"
+	"github.com/px94/PowerWeChat/v3/src/officialAccount"
+	"github.com/px94/PowerWeChat/v3/src/openPlatform/authorizer/officialAccount/account"
+	"github.com/px94/PowerWeChat/v3/src/openPlatform/authorizer/officialAccount/miniProgram"
 )
 
 type Application struct {
@@ -31,17 +31,17 @@ func NewApplication(config *officialAccount.UserConfig, extraInfos ...*kernel.Ex
 		OfficialAccount: officialAccount,
 	}
 
-	//-------------- global app config --------------
+	// -------------- global app config --------------
 	// global app config
 	app.Config = providers.RegisterConfigProvider(app)
 
-	//-------------- register Aggregate --------------
+	// -------------- register Aggregate --------------
 	app.Account, err = account.NewClient(app, nil)
 	if err != nil {
 		return nil, err
 	}
 
-	//-------------- register MiniProgram --------------
+	// -------------- register MiniProgram --------------
 	app.MiniProgram, err = miniProgram.RegisterProvider(app)
 	if err != nil {
 		return nil, err

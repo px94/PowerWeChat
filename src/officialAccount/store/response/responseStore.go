@@ -1,8 +1,8 @@
 package response
 
 import (
-	"github.com/ArtisanCloud/PowerWeChat/v3/src/kernel/response"
-	response2 "github.com/ArtisanCloud/PowerWeChat/v3/src/officialAccount/poi/response"
+	"github.com/px94/PowerWeChat/v3/src/kernel/response"
+	response2 "github.com/px94/PowerWeChat/v3/src/officialAccount/poi/response"
 )
 
 type Inner struct {

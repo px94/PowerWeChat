@@ -6,28 +6,28 @@ import (
 	"github.com/ArtisanCloud/PowerLibs/v3/logger"
 	"github.com/ArtisanCloud/PowerLibs/v3/logger/contract"
 	"github.com/ArtisanCloud/PowerLibs/v3/object"
-	"github.com/ArtisanCloud/PowerWeChat/v3/src/kernel"
-	"github.com/ArtisanCloud/PowerWeChat/v3/src/kernel/models"
-	"github.com/ArtisanCloud/PowerWeChat/v3/src/kernel/providers"
-	"github.com/ArtisanCloud/PowerWeChat/v3/src/payment/apply4Sub"
-	"github.com/ArtisanCloud/PowerWeChat/v3/src/payment/base"
-	"github.com/ArtisanCloud/PowerWeChat/v3/src/payment/bill"
-	"github.com/ArtisanCloud/PowerWeChat/v3/src/payment/jssdk"
-	kernel2 "github.com/ArtisanCloud/PowerWeChat/v3/src/payment/kernel"
-	"github.com/ArtisanCloud/PowerWeChat/v3/src/payment/merchant"
-	"github.com/ArtisanCloud/PowerWeChat/v3/src/payment/notify"
-	"github.com/ArtisanCloud/PowerWeChat/v3/src/payment/notify/request"
-	"github.com/ArtisanCloud/PowerWeChat/v3/src/payment/order"
-	"github.com/ArtisanCloud/PowerWeChat/v3/src/payment/partner"
-	"github.com/ArtisanCloud/PowerWeChat/v3/src/payment/payScore"
-	"github.com/ArtisanCloud/PowerWeChat/v3/src/payment/profitSharing"
-	"github.com/ArtisanCloud/PowerWeChat/v3/src/payment/redpack"
-	"github.com/ArtisanCloud/PowerWeChat/v3/src/payment/refund"
-	"github.com/ArtisanCloud/PowerWeChat/v3/src/payment/reverse"
-	"github.com/ArtisanCloud/PowerWeChat/v3/src/payment/sandbox"
-	"github.com/ArtisanCloud/PowerWeChat/v3/src/payment/security"
-	"github.com/ArtisanCloud/PowerWeChat/v3/src/payment/tax"
-	"github.com/ArtisanCloud/PowerWeChat/v3/src/payment/transfer"
+	"github.com/px94/PowerWeChat/v3/src/kernel"
+	"github.com/px94/PowerWeChat/v3/src/kernel/models"
+	"github.com/px94/PowerWeChat/v3/src/kernel/providers"
+	"github.com/px94/PowerWeChat/v3/src/payment/apply4Sub"
+	"github.com/px94/PowerWeChat/v3/src/payment/base"
+	"github.com/px94/PowerWeChat/v3/src/payment/bill"
+	"github.com/px94/PowerWeChat/v3/src/payment/jssdk"
+	kernel2 "github.com/px94/PowerWeChat/v3/src/payment/kernel"
+	"github.com/px94/PowerWeChat/v3/src/payment/merchant"
+	"github.com/px94/PowerWeChat/v3/src/payment/notify"
+	"github.com/px94/PowerWeChat/v3/src/payment/notify/request"
+	"github.com/px94/PowerWeChat/v3/src/payment/order"
+	"github.com/px94/PowerWeChat/v3/src/payment/partner"
+	"github.com/px94/PowerWeChat/v3/src/payment/payScore"
+	"github.com/px94/PowerWeChat/v3/src/payment/profitSharing"
+	"github.com/px94/PowerWeChat/v3/src/payment/redpack"
+	"github.com/px94/PowerWeChat/v3/src/payment/refund"
+	"github.com/px94/PowerWeChat/v3/src/payment/reverse"
+	"github.com/px94/PowerWeChat/v3/src/payment/sandbox"
+	"github.com/px94/PowerWeChat/v3/src/payment/security"
+	"github.com/px94/PowerWeChat/v3/src/payment/tax"
+	"github.com/px94/PowerWeChat/v3/src/payment/transfer"
 	"net/http"
 	"time"
 )
@@ -134,7 +134,7 @@ func NewPayment(config *UserConfig) (*Payment, error) {
 		ServiceContainer: container,
 	}
 
-	//-------------- global app config --------------
+	// -------------- global app config --------------
 	// global app config
 	app.Config = providers.RegisterConfigProvider(app)
 
@@ -148,88 +148,88 @@ func NewPayment(config *UserConfig) (*Payment, error) {
 	if err != nil {
 		return nil, err
 	}
-	//-------------- register Base --------------
+	// -------------- register Base --------------
 	app.Base, err = base.RegisterProvider(app)
 	if err != nil {
 		return nil, err
 	}
 
-	//-------------- Order --------------
+	// -------------- Order --------------
 	app.Order, err = order.RegisterProvider(app)
 	if err != nil {
 		return nil, err
 	}
-	//-------------- Partner --------------
+	// -------------- Partner --------------
 	app.Partner, err = partner.RegisterProvider(app)
 	if err != nil {
 		return nil, err
 	}
-	//-------------- JSSDK --------------
+	// -------------- JSSDK --------------
 	app.JSSDK, err = jssdk.RegisterProvider(app)
 	if err != nil {
 		return nil, err
 	}
-	//-------------- Sandbox --------------
+	// -------------- Sandbox --------------
 	app.Sandbox, err = sandbox.RegisterProvider(app)
 	if err != nil {
 		return nil, err
 	}
-	//-------------- Refund --------------
+	// -------------- Refund --------------
 	app.Refund, err = refund.RegisterProvider(app)
 	if err != nil {
 		return nil, err
 	}
-	//-------------- Bill --------------
+	// -------------- Bill --------------
 	app.Bill, err = bill.RegisterProvider(app)
 	if err != nil {
 		return nil, err
 	}
-	//-------------- Red Pack --------------
+	// -------------- Red Pack --------------
 	app.RedPack, err = redpack.RegisterProvider(app)
 	if err != nil {
 		return nil, err
 	}
-	//-------------- Transfer --------------
+	// -------------- Transfer --------------
 	app.Transfer, app.TransferBatch, err = transfer.RegisterProvider(app)
 	if err != nil {
 		return nil, err
 	}
 
-	//-------------- Reverse --------------
+	// -------------- Reverse --------------
 	app.Reverse, err = reverse.RegisterProvider(app)
 	if err != nil {
 		return nil, err
 	}
-	//-------------- ProfitSharing --------------
+	// -------------- ProfitSharing --------------
 	app.ProfitSharing, err = profitSharing.RegisterProvider(app)
 	if err != nil {
 		return nil, err
 	}
 
-	//-------------- 	Apply4Sub --------------
+	// -------------- 	Apply4Sub --------------
 	app.Apply4Sub, err = apply4Sub.RegisterProvider(app)
 	if err != nil {
 		return nil, err
 	}
-	//-------------- 	Merchant --------------
+	// -------------- 	Merchant --------------
 	app.Merchant, err = merchant.RegisterProvider(app)
 	if err != nil {
 		return nil, err
 	}
 
-	//-------------- 	Pay Score --------------
+	// -------------- 	Pay Score --------------
 	app.PayScore, err = payScore.RegisterProvider(app)
 	if err != nil {
 		return nil, err
 	}
 
-	//-------------- 	Tax --------------
+	// -------------- 	Tax --------------
 	app.Tax, err = tax.RegisterProvider(app)
 	if err != nil {
 		return nil, err
 	}
 
-	//-------------- Security --------------
+	// -------------- Security --------------
 	app.Security, err = security.RegisterProvider(app)
 	if err != nil {
 		return nil, err
@@ -243,7 +243,7 @@ func (app *Payment) GetContainer() *kernel.ServiceContainer {
 }
 
 func (app *Payment) GetAccessToken() *kernel.AccessToken {
-	//return app.AccessToken.AccessToken
+	// return app.AccessToken.AccessToken
 	return nil
 }
 
@@ -301,7 +301,7 @@ func (app *Payment) GetComponent(name string) interface{} {
 func (app *Payment) Scheme(productID string) string {
 	appID := app.Config.GetString("app_id", "")
 	mchID := app.Config.GetString("mch_id", "")
-	//key := app.Config.GetString("key", "")
+	// key := app.Config.GetString("key", "")
 	params := &object.StringMap{
 		"appid":      appID,
 		"mch_id":     mchID,
@@ -310,8 +310,8 @@ func (app *Payment) Scheme(productID string) string {
 		"product_id": productID,
 	}
 
-	//var err error
-	//(*params)["sign"], err = support.GenerateSign(params, key, "md5")
+	// var err error
+	// (*params)["sign"], err = support.GenerateSign(params, key, "md5")
 
 	return "weixin://wxpay/bizpayurl?" + object.ConvertStringMapToString(params, "&")
 }

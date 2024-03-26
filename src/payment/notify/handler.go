@@ -6,10 +6,10 @@ import (
 	"errors"
 	"fmt"
 	"github.com/ArtisanCloud/PowerLibs/v3/object"
-	"github.com/ArtisanCloud/PowerWeChat/v3/src/kernel/support"
-	base2 "github.com/ArtisanCloud/PowerWeChat/v3/src/payment/base"
-	"github.com/ArtisanCloud/PowerWeChat/v3/src/payment/kernel"
-	"github.com/ArtisanCloud/PowerWeChat/v3/src/payment/notify/request"
+	"github.com/px94/PowerWeChat/v3/src/kernel/support"
+	base2 "github.com/px94/PowerWeChat/v3/src/payment/base"
+	"github.com/px94/PowerWeChat/v3/src/payment/kernel"
+	"github.com/px94/PowerWeChat/v3/src/payment/notify/request"
 	"io/ioutil"
 	"net/http"
 )
@@ -24,7 +24,7 @@ type Handler struct {
 
 	ExternalRequest *http.Request
 
-	//Handle func(closure func(message *request.RequestNotify, transaction *models.Transaction, fail func(groupWelcomeTemplate string)) interface{}) *http.Response
+	// Handle func(closure func(message *request.RequestNotify, transaction *models.Transaction, fail func(groupWelcomeTemplate string)) interface{}) *http.Response
 }
 
 const SUCCESS = "SUCCESS"
@@ -32,7 +32,7 @@ const FAIL = "FAIL"
 
 func NewHandler(app kernel.ApplicationPaymentInterface, r *http.Request) *Handler {
 
-	//-------------- external request --------------
+	// -------------- external request --------------
 	request := &http.Request{}
 	if r != nil {
 		request = r

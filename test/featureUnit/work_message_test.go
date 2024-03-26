@@ -1,13 +1,13 @@
 package featureUnit
 
 import (
-	"github.com/ArtisanCloud/PowerWeChat/v3/src/kernel/power"
+	"github.com/px94/PowerWeChat/v3/src/kernel/power"
 	"testing"
 )
 
 func Test_Message_Send_Text(t *testing.T) {
 
-	//para := &request.RequestMessageSendText{
+	// para := &request.RequestMessageSendText{
 	//	&request.RequestMessageSend{
 	//		ToUser:                 "michael",
 	//		MsgType:                "text",
@@ -20,7 +20,7 @@ func Test_Message_Send_Text(t *testing.T) {
 	//	&request.RequestText{
 	//		Content: "您已经成功测试收到系统推送消息",
 	//	},
-	//}
+	// }
 
 	powerPara := &power.HashMap{
 		"touser":  "michaelhu",

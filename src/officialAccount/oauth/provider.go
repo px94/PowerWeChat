@@ -4,7 +4,7 @@ import (
 	"github.com/ArtisanCloud/PowerLibs/v3/object"
 	"github.com/ArtisanCloud/PowerSocialite/v3/src"
 	"github.com/ArtisanCloud/PowerSocialite/v3/src/providers"
-	"github.com/ArtisanCloud/PowerWeChat/v3/src/kernel"
+	"github.com/px94/PowerWeChat/v3/src/kernel"
 	"strings"
 )
 
@@ -56,11 +56,11 @@ func prepareCallbackURL(app kernel.ApplicationInterface) string {
 		}
 	}
 
-	//externalRequest := app.GetExternalRequest()
+	// externalRequest := app.GetExternalRequest()
 	baseURL := config.GetString("oauth.callbacks", "")
-	//if externalRequest != nil {
+	// if externalRequest != nil {
 	//	baseURL = app.GetExternalRequest().URL.Host
-	//}
+	// }
 
 	return baseURL + "/" + callback
 

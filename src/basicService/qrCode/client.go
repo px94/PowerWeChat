@@ -4,9 +4,9 @@ import (
 	"context"
 	"fmt"
 	"github.com/ArtisanCloud/PowerLibs/v3/object"
-	"github.com/ArtisanCloud/PowerWeChat/v3/src/basicService/qrCode/request"
-	"github.com/ArtisanCloud/PowerWeChat/v3/src/basicService/qrCode/response"
-	"github.com/ArtisanCloud/PowerWeChat/v3/src/kernel"
+	"github.com/px94/PowerWeChat/v3/src/basicService/qrCode/request"
+	"github.com/px94/PowerWeChat/v3/src/basicService/qrCode/response"
+	"github.com/px94/PowerWeChat/v3/src/kernel"
 	"math"
 	"net/url"
 )
@@ -110,7 +110,7 @@ func (comp *Client) Create(ctx context.Context, data *request.RequestQRCodeCreat
 
 	result := &response.ResponseQRCodeCreate{}
 
-	//params, err := object.StructToHashMapWithTag(data, "json")
+	// params, err := object.StructToHashMapWithTag(data, "json")
 	params, err := object.StructToHashMap(data)
 	if err != nil {
 		return nil, err

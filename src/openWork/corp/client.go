@@ -1,8 +1,8 @@
 package corp
 
 import (
-	"github.com/ArtisanCloud/PowerWeChat/v3/src/kernel"
-	suite "github.com/ArtisanCloud/PowerWeChat/v3/src/openWork/suitAuth"
+	"github.com/px94/PowerWeChat/v3/src/kernel"
+	suite "github.com/px94/PowerWeChat/v3/src/openWork/suitAuth"
 )
 
 type Client struct {
@@ -20,9 +20,9 @@ func NewClient(app *kernel.ApplicationInterface) (*Client, error) {
 	}, nil
 }
 
-//// 获取代码草稿列表
-//// https://developers.weixin.qq.com/doc/oplatform/Third-party_Platforms/2.0/api/ThirdParty/code_template/gettemplatedraftlist.html
-//func (comp *Client) GetPreAuthorizationUrl() (*response.ResponseGetDrafts, error) {
+// // 获取代码草稿列表
+// // https://developers.weixin.qq.com/doc/oplatform/Third-party_Platforms/2.0/api/ThirdParty/code_template/gettemplatedraftlist.html
+// func (comp *Client) GetPreAuthorizationUrl() (*response.ResponseGetDrafts, error) {
 //
 //	result := &response.ResponseGetDrafts{}
 //
@@ -30,4 +30,4 @@ func NewClient(app *kernel.ApplicationInterface) (*Client, error) {
 //
 //	return result, err
 //
-//}
+// }

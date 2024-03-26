@@ -14,10 +14,10 @@ import (
 	"github.com/ArtisanCloud/PowerLibs/v3/object"
 	os2 "github.com/ArtisanCloud/PowerLibs/v3/os"
 	"github.com/ArtisanCloud/PowerLibs/v3/security/sign"
-	"github.com/ArtisanCloud/PowerWeChat/v3/src/kernel"
-	"github.com/ArtisanCloud/PowerWeChat/v3/src/kernel/power"
-	response2 "github.com/ArtisanCloud/PowerWeChat/v3/src/kernel/response"
-	"github.com/ArtisanCloud/PowerWeChat/v3/src/kernel/support"
+	"github.com/px94/PowerWeChat/v3/src/kernel"
+	"github.com/px94/PowerWeChat/v3/src/kernel/power"
+	response2 "github.com/px94/PowerWeChat/v3/src/kernel/response"
+	"github.com/px94/PowerWeChat/v3/src/kernel/support"
 	"io"
 	"log"
 	"net/http"
@@ -84,7 +84,7 @@ func (client *BaseClient) PlainRequest(ctx context.Context, endpoint string, par
 	returnRaw bool, outHeader interface{}, outBody interface{},
 ) (response *http.Response, err error) {
 
-	//config := (*client.App).GetConfig()
+	// config := (*client.App).GetConfig()
 	base := &object.HashMap{}
 
 	// init options
@@ -187,7 +187,7 @@ func (client *BaseClient) RequestV2(ctx context.Context, endpoint string, params
 	}
 	params = object.FilterEmptyHashMap(params)
 
-	//options, err := client.AuthSignRequestV2(endpoint, method, params, option)
+	// options, err := client.AuthSignRequestV2(endpoint, method, params, option)
 	options, err := client.AuthSignRequestV2(endpoint, method, params, option)
 	if err != nil {
 		return nil, err
@@ -245,7 +245,7 @@ func (client *BaseClient) Request(ctx context.Context, endpoint string, params *
 		return nil, err
 	}
 	// to be setup middleware here
-	//client.PushMiddleware(client.logMiddleware(), "access_token")
+	// client.PushMiddleware(client.logMiddleware(), "access_token")
 
 	// http client request
 	df := client.HttpHelper.Df().
@@ -323,7 +323,7 @@ func (client *BaseClient) RequestRawXML(ctx context.Context, url string, params 
 		return nil, err
 	}
 	// to be setup middleware here
-	//client.PushMiddleware(client.logMiddleware(), "access_token")
+	// client.PushMiddleware(client.logMiddleware(), "access_token")
 
 	httpConfig := client.HttpHelper.GetClient().GetConfig()
 	httpConfig.Cert.CertFile = config.GetString("cert_path", "")
@@ -362,7 +362,7 @@ func (client *BaseClient) RequestRawXML(ctx context.Context, url string, params 
 		// set header
 		df.
 			Header("content-type", "application/xml").
-			//Header("Authorization", (*(*options)["headers"].(*object.HashMap))["Authorization"].(string)).
+			// Header("Authorization", (*(*options)["headers"].(*object.HashMap))["Authorization"].(string)).
 			Header("Wechatpay-Serial", (*(*options)["headers"].(*object.HashMap))["Wechatpay-Serial"].(string))
 
 	}
@@ -441,16 +441,16 @@ func (client *BaseClient) HttpUploadJson(ctx context.Context, url string, files 
 		df.
 			Header("content-type", "application/json").
 			Header("Authorization", (*(*options)["headers"].(*object.HashMap))["Authorization"].(string))
-		//body := &power.JsonEncoder{
+		// body := &power.JsonEncoder{
 		//	Data: (*options)["body"],
-		//}
-		//df.Any(body)
-		//df.Json((*options)["body"])
+		// }
+		// df.Any(body)
+		// df.Json((*options)["body"])
 	}
 
-	//df.Multipart(func(multipart contract.MultipartDfInterface) {
+	// df.Multipart(func(multipart contract.MultipartDfInterface) {
 	//	multipart.FieldValue((*options)["body"].(string))
-	//})
+	// })
 	df.Multipart(func(multipart contract.MultipartDfInterface) {
 		multipart.FieldValue("meta", (*options)["body"].(string))
 
@@ -489,7 +489,7 @@ func (client *BaseClient) StreamDownload(ctx context.Context, requestDownload *p
 	if err != nil {
 		return 0, err
 	}
-	//defer fileHandler.Close()
+	// defer fileHandler.Close()
 
 	config := (*client.App).GetConfig()
 
@@ -514,7 +514,7 @@ func (client *BaseClient) StreamDownload(ctx context.Context, requestDownload *p
 	if err != nil {
 		return 0, err
 	}
-	//defer downloadedHandler.Close()
+	// defer downloadedHandler.Close()
 
 	fileMd5 := sha1.New()
 	totalSize, err := io.Copy(fileMd5, downloadedHandler)
@@ -522,7 +522,7 @@ func (client *BaseClient) StreamDownload(ctx context.Context, requestDownload *p
 		return 0, err
 	}
 
-	//fmt2.Dump(totalSize)
+	// fmt2.Dump(totalSize)
 
 	if requestDownload.HashValue != "" {
 		fmt2.Dump(fileMd5.Sum(nil), requestDownload.HashValue)
@@ -695,7 +695,7 @@ func (client *BaseClient) AuthSignRequestSimple(config *kernel.Config, endpoint 
 	// set body content
 	options = object.MergeHashMap(&object.HashMap{
 		"headers": &object.HashMap{
-			//"Authorization":    authorization,
+			// "Authorization":    authorization,
 			"Wechatpay-Serial": config.GetString("serial_no", ""),
 		},
 		"body": signBody,
@@ -750,33 +750,33 @@ func (client *BaseClient) AuthSignRequestV2(endpoint string, method string, para
 func (client *BaseClient) RegisterHttpMiddlewares() {
 
 	// access token
-	//accessTokenMiddleware := client.GetMiddlewareOfAccessToken
+	// accessTokenMiddleware := client.GetMiddlewareOfAccessToken
 	// check invalid access token
-	//checkAccessTokenMiddleware := client.GetMiddlewareOfRefreshAccessToken
+	// checkAccessTokenMiddleware := client.GetMiddlewareOfRefreshAccessToken
 	// log
 	logMiddleware := client.GetMiddlewareOfLog
 
 	config := (*client.App).GetConfig()
 	logger := (*client.App).GetComponent("Logger").(contract2.LoggerInterface)
 	client.HttpHelper.WithMiddleware(
-		//accessTokenMiddleware,
+		// accessTokenMiddleware,
 		logMiddleware(logger),
-		//checkAccessTokenMiddleware(3),
+		// checkAccessTokenMiddleware(3),
 		helper.HttpDebugMiddleware(config.GetBool("http_debug", false)),
 	)
 }
 
 func (client *BaseClient) OverrideGetMiddlewares() {
 	client.OverrideGetMiddlewareOfLog()
-	//client.OverrideGetMiddlewareOfAccessToken()
-	//client.OverrideGetMiddlewareOfRefreshAccessToken()
+	// client.OverrideGetMiddlewareOfAccessToken()
+	// client.OverrideGetMiddlewareOfRefreshAccessToken()
 }
 
 func (client *BaseClient) OverrideGetMiddlewareOfAccessToken() {
 	client.GetMiddlewareOfAccessToken = func(handle contract.RequestHandle) contract.RequestHandle {
 		return func(request *http.Request) (response *http.Response, err error) {
 			// 前置中间件
-			//fmt.Println("获取access token, 在请求前执行")
+			// fmt.Println("获取access token, 在请求前执行")
 
 			accessToken := (*client.App).GetAccessToken()
 
@@ -793,7 +793,7 @@ func (client *BaseClient) OverrideGetMiddlewareOfAccessToken() {
 			// handle 执行之后就可以操作 response 和 err
 
 			// 后置中间件
-			//fmt.Println("获取access token, 在请求后执行")
+			// fmt.Println("获取access token, 在请求后执行")
 			return
 		}
 	}

@@ -3,10 +3,10 @@ package vod
 import (
 	"context"
 	"github.com/ArtisanCloud/PowerLibs/v3/object"
-	"github.com/ArtisanCloud/PowerWeChat/v3/src/kernel"
-	"github.com/ArtisanCloud/PowerWeChat/v3/src/kernel/power"
-	"github.com/ArtisanCloud/PowerWeChat/v3/src/miniProgram/industry/miniDrama/request"
-	"github.com/ArtisanCloud/PowerWeChat/v3/src/miniProgram/industry/miniDrama/response"
+	"github.com/px94/PowerWeChat/v3/src/kernel"
+	"github.com/px94/PowerWeChat/v3/src/kernel/power"
+	"github.com/px94/PowerWeChat/v3/src/miniProgram/industry/miniDrama/request"
+	"github.com/px94/PowerWeChat/v3/src/miniProgram/industry/miniDrama/response"
 )
 
 type Client struct {
@@ -14,7 +14,7 @@ type Client struct {
 }
 
 // 拉取上传 该接口使用url传递到微信服务器
-//https://developers.weixin.qq.com/miniprogram/dev/platform-capabilities/industry/mini-drama/mini_drama.html#_1-2-%E6%8B%89%E5%8F%96%E4%B8%8A%E4%BC%A0
+// https://developers.weixin.qq.com/miniprogram/dev/platform-capabilities/industry/mini-drama/mini_drama.html#_1-2-%E6%8B%89%E5%8F%96%E4%B8%8A%E4%BC%A0
 
 func (comp *Client) VideoMediaUploadByURL(ctx context.Context, in *request.VideoMediaUploadByURLRequest) (result *response.VideoMediaUploadByURLResponse, err error) {
 

@@ -4,11 +4,11 @@ import (
 	"context"
 	"github.com/ArtisanCloud/PowerLibs/v3/object"
 	"github.com/ArtisanCloud/PowerSocialite/v3/src/response/weCom"
-	"github.com/ArtisanCloud/PowerWeChat/v3/src/kernel"
-	response2 "github.com/ArtisanCloud/PowerWeChat/v3/src/kernel/response"
-	response3 "github.com/ArtisanCloud/PowerWeChat/v3/src/work/externalContact/groupChat/response"
-	"github.com/ArtisanCloud/PowerWeChat/v3/src/work/externalContact/request"
-	"github.com/ArtisanCloud/PowerWeChat/v3/src/work/externalContact/response"
+	"github.com/px94/PowerWeChat/v3/src/kernel"
+	response2 "github.com/px94/PowerWeChat/v3/src/kernel/response"
+	response3 "github.com/px94/PowerWeChat/v3/src/work/externalContact/groupChat/response"
+	"github.com/px94/PowerWeChat/v3/src/work/externalContact/request"
+	"github.com/px94/PowerWeChat/v3/src/work/externalContact/response"
 	"strconv"
 )
 

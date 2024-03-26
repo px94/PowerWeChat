@@ -1,16 +1,16 @@
 package oa
 
 import (
-	"github.com/ArtisanCloud/PowerWeChat/v3/src/kernel"
-	"github.com/ArtisanCloud/PowerWeChat/v3/src/work/oa/calendar"
-	"github.com/ArtisanCloud/PowerWeChat/v3/src/work/oa/dial"
-	"github.com/ArtisanCloud/PowerWeChat/v3/src/work/oa/journal"
-	"github.com/ArtisanCloud/PowerWeChat/v3/src/work/oa/living"
-	"github.com/ArtisanCloud/PowerWeChat/v3/src/work/oa/meeting"
-	"github.com/ArtisanCloud/PowerWeChat/v3/src/work/oa/meetingroom"
-	"github.com/ArtisanCloud/PowerWeChat/v3/src/work/oa/pstncc"
-	"github.com/ArtisanCloud/PowerWeChat/v3/src/work/oa/schedule"
-	"github.com/ArtisanCloud/PowerWeChat/v3/src/work/oa/webdrive"
+	"github.com/px94/PowerWeChat/v3/src/kernel"
+	"github.com/px94/PowerWeChat/v3/src/work/oa/calendar"
+	"github.com/px94/PowerWeChat/v3/src/work/oa/dial"
+	"github.com/px94/PowerWeChat/v3/src/work/oa/journal"
+	"github.com/px94/PowerWeChat/v3/src/work/oa/living"
+	"github.com/px94/PowerWeChat/v3/src/work/oa/meeting"
+	"github.com/px94/PowerWeChat/v3/src/work/oa/meetingroom"
+	"github.com/px94/PowerWeChat/v3/src/work/oa/pstncc"
+	"github.com/px94/PowerWeChat/v3/src/work/oa/schedule"
+	"github.com/px94/PowerWeChat/v3/src/work/oa/webdrive"
 )
 
 func RegisterProvider(app kernel.ApplicationInterface) (*Client,
@@ -26,7 +26,7 @@ func RegisterProvider(app kernel.ApplicationInterface) (*Client,
 	error,
 
 ) {
-	//config := app.GetConfig()
+	// config := app.GetConfig()
 
 	Client, err := NewClient(app)
 	if err != nil {

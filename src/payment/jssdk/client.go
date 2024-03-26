@@ -10,8 +10,8 @@ import (
 	"time"
 
 	"github.com/ArtisanCloud/PowerLibs/v3/object"
-	"github.com/ArtisanCloud/PowerWeChat/v3/src/basicService/jssdk"
-	kernel2 "github.com/ArtisanCloud/PowerWeChat/v3/src/kernel"
+	"github.com/px94/PowerWeChat/v3/src/basicService/jssdk"
+	kernel2 "github.com/px94/PowerWeChat/v3/src/kernel"
 )
 
 type Client struct {
@@ -175,7 +175,7 @@ func (comp *Client) ContractConfig(params *object.StringMap) (*object.StringMap,
 	config := (*comp.BaseClient.App).GetConfig()
 	(*params)["appid"] = config.GetString("app_id", "")
 	(*params)["timestamp"] = fmt.Sprintf("%d", time.Now().Unix())
-	//(*params)["sign"] = support.GenerateSign(params, config.GetString("key", ""), "md5")
+	// (*params)["sign"] = support.GenerateSign(params, config.GetString("key", ""), "md5")
 
 	return params, nil
 

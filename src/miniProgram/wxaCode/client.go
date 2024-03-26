@@ -3,9 +3,9 @@ package wxaCode
 import (
 	"context"
 	"github.com/ArtisanCloud/PowerLibs/v3/object"
-	"github.com/ArtisanCloud/PowerWeChat/v3/src/kernel"
-	"github.com/ArtisanCloud/PowerWeChat/v3/src/kernel/power"
-	response4 "github.com/ArtisanCloud/PowerWeChat/v3/src/work/media/response"
+	"github.com/px94/PowerWeChat/v3/src/kernel"
+	"github.com/px94/PowerWeChat/v3/src/kernel/power"
+	response4 "github.com/px94/PowerWeChat/v3/src/work/media/response"
 	"io/fs"
 	"io/ioutil"
 	"net/http"
@@ -77,7 +77,7 @@ func (comp *Client) SaveAs(ctx context.Context, savedPath string, perm fs.FileMo
 	}
 
 	body, err := ioutil.ReadAll(rs.Body)
-	err = ioutil.WriteFile(savedPath, body, perm) //保存图片地址
+	err = ioutil.WriteFile(savedPath, body, perm) // 保存图片地址
 
 	return err
 }

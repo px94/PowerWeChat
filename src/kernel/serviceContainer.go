@@ -3,7 +3,7 @@ package kernel
 import (
 	"crypto/md5"
 	"github.com/ArtisanCloud/PowerLibs/v3/object"
-	"github.com/ArtisanCloud/PowerWeChat/v3/src/kernel/power"
+	"github.com/px94/PowerWeChat/v3/src/kernel/power"
 )
 
 type ApplicationInterface interface {
@@ -82,6 +82,6 @@ func (container *ServiceContainer) GetConfig() *object.HashMap {
 
 	// merge config
 	container.Config = object.ReplaceHashMapRecursive(container.Config, basicConfig, container.DefaultConfig, container.UserConfig)
-	//fmt.Dump(container.Config)
+	// fmt.Dump(container.Config)
 	return container.Config
 }

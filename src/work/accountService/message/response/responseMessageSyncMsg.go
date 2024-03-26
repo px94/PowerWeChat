@@ -2,7 +2,7 @@ package response
 
 import (
 	"github.com/ArtisanCloud/PowerLibs/v3/object"
-	"github.com/ArtisanCloud/PowerWeChat/v3/src/kernel/response"
+	"github.com/px94/PowerWeChat/v3/src/kernel/response"
 )
 
 type ResponseMessageSyncMsg struct {

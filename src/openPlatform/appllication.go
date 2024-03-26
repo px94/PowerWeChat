@@ -7,20 +7,20 @@ import (
 	"github.com/ArtisanCloud/PowerLibs/v3/logger"
 	"github.com/ArtisanCloud/PowerLibs/v3/logger/contract"
 	"github.com/ArtisanCloud/PowerLibs/v3/object"
-	"github.com/ArtisanCloud/PowerWeChat/v3/src/kernel"
-	"github.com/ArtisanCloud/PowerWeChat/v3/src/kernel/providers"
-	miniProgram2 "github.com/ArtisanCloud/PowerWeChat/v3/src/miniProgram"
-	officialAccount2 "github.com/ArtisanCloud/PowerWeChat/v3/src/officialAccount"
-	"github.com/ArtisanCloud/PowerWeChat/v3/src/openPlatform/auth"
-	auth2 "github.com/ArtisanCloud/PowerWeChat/v3/src/openPlatform/authorizer/auth"
-	miniProgram3 "github.com/ArtisanCloud/PowerWeChat/v3/src/openPlatform/authorizer/miniProgram"
-	auth3 "github.com/ArtisanCloud/PowerWeChat/v3/src/openPlatform/authorizer/miniProgram/auth"
-	"github.com/ArtisanCloud/PowerWeChat/v3/src/openPlatform/authorizer/officialAccount"
-	"github.com/ArtisanCloud/PowerWeChat/v3/src/openPlatform/authorizer/officialAccount/account"
-	"github.com/ArtisanCloud/PowerWeChat/v3/src/openPlatform/base"
-	"github.com/ArtisanCloud/PowerWeChat/v3/src/openPlatform/codeTemplate"
-	"github.com/ArtisanCloud/PowerWeChat/v3/src/openPlatform/component"
-	"github.com/ArtisanCloud/PowerWeChat/v3/src/openPlatform/server"
+	"github.com/px94/PowerWeChat/v3/src/kernel"
+	"github.com/px94/PowerWeChat/v3/src/kernel/providers"
+	miniProgram2 "github.com/px94/PowerWeChat/v3/src/miniProgram"
+	officialAccount2 "github.com/px94/PowerWeChat/v3/src/officialAccount"
+	"github.com/px94/PowerWeChat/v3/src/openPlatform/auth"
+	auth2 "github.com/px94/PowerWeChat/v3/src/openPlatform/authorizer/auth"
+	miniProgram3 "github.com/px94/PowerWeChat/v3/src/openPlatform/authorizer/miniProgram"
+	auth3 "github.com/px94/PowerWeChat/v3/src/openPlatform/authorizer/miniProgram/auth"
+	"github.com/px94/PowerWeChat/v3/src/openPlatform/authorizer/officialAccount"
+	"github.com/px94/PowerWeChat/v3/src/openPlatform/authorizer/officialAccount/account"
+	"github.com/px94/PowerWeChat/v3/src/openPlatform/base"
+	"github.com/px94/PowerWeChat/v3/src/openPlatform/codeTemplate"
+	"github.com/px94/PowerWeChat/v3/src/openPlatform/component"
+	"github.com/px94/PowerWeChat/v3/src/openPlatform/server"
 )
 
 type OpenPlatform struct {
@@ -102,7 +102,7 @@ func NewOpenPlatform(config *UserConfig) (*OpenPlatform, error) {
 		ServiceContainer: container,
 	}
 
-	//-------------- global app config --------------
+	// -------------- global app config --------------
 	// global app config
 	app.Config = providers.RegisterConfigProvider(app)
 
@@ -116,30 +116,30 @@ func NewOpenPlatform(config *UserConfig) (*OpenPlatform, error) {
 		return nil, err
 	}
 
-	//-------------- register auth --------------
+	// -------------- register auth --------------
 	app.VerifyTicket, app.AccessToken, err = auth.RegisterProvider(app)
 	if err != nil {
 		return nil, err
 	}
-	//-------------- register Base --------------
+	// -------------- register Base --------------
 	app.Base, err = base.RegisterProvider(app)
 	if err != nil {
 		return nil, err
 	}
 
-	//-------------- register Encryptor and Server --------------
+	// -------------- register Encryptor and Server --------------
 	app.Encryptor, app.Server, err = server.RegisterProvider(app)
 	if err != nil {
 		return nil, err
 	}
 
-	//-------------- register CodeTemplate --------------
+	// -------------- register CodeTemplate --------------
 	app.CodeTemplate, err = codeTemplate.RegisterProvider(app)
 	if err != nil {
 		return nil, err
 	}
 
-	//-------------- register Component --------------
+	// -------------- register Component --------------
 	app.Component, err = component.RegisterProvider(app)
 	if err != nil {
 		return nil, err

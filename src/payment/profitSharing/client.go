@@ -4,9 +4,9 @@ import (
 	"context"
 	"fmt"
 	"github.com/ArtisanCloud/PowerLibs/v3/object"
-	payment "github.com/ArtisanCloud/PowerWeChat/v3/src/payment/kernel"
-	"github.com/ArtisanCloud/PowerWeChat/v3/src/payment/profitSharing/request"
-	"github.com/ArtisanCloud/PowerWeChat/v3/src/payment/profitSharing/response"
+	payment "github.com/px94/PowerWeChat/v3/src/payment/kernel"
+	"github.com/px94/PowerWeChat/v3/src/payment/profitSharing/request"
+	"github.com/px94/PowerWeChat/v3/src/payment/profitSharing/response"
 	"net/http"
 )
 
@@ -35,7 +35,7 @@ func (comp *Client) Share(ctx context.Context, param *request.RequestShare) (*re
 		param.AppID = config.GetString("app_id", "")
 	}
 
-	//options, err := object.StructToHashMapWithTag(param,"json")
+	// options, err := object.StructToHashMapWithTag(param,"json")
 	options, err := object.StructToHashMap(param)
 
 	endpoint := comp.Wrap("/v3/profitsharing/orders")

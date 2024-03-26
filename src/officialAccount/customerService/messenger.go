@@ -5,8 +5,8 @@ import (
 	"errors"
 
 	"github.com/ArtisanCloud/PowerLibs/v3/object"
-	"github.com/ArtisanCloud/PowerWeChat/v3/src/kernel/contract"
-	"github.com/ArtisanCloud/PowerWeChat/v3/src/kernel/messages"
+	"github.com/px94/PowerWeChat/v3/src/kernel/contract"
+	"github.com/px94/PowerWeChat/v3/src/kernel/messages"
 )
 
 type Messenger struct {

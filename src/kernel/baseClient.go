@@ -10,10 +10,10 @@ import (
 	contract2 "github.com/ArtisanCloud/PowerLibs/v3/logger/contract"
 	"github.com/ArtisanCloud/PowerLibs/v3/object"
 	"github.com/ArtisanCloud/PowerLibs/v3/os"
-	"github.com/ArtisanCloud/PowerWeChat/v3/src/kernel/power"
-	request2 "github.com/ArtisanCloud/PowerWeChat/v3/src/kernel/request"
-	response2 "github.com/ArtisanCloud/PowerWeChat/v3/src/kernel/response"
-	"github.com/ArtisanCloud/PowerWeChat/v3/src/kernel/support"
+	"github.com/px94/PowerWeChat/v3/src/kernel/power"
+	request2 "github.com/px94/PowerWeChat/v3/src/kernel/request"
+	response2 "github.com/px94/PowerWeChat/v3/src/kernel/response"
+	"github.com/px94/PowerWeChat/v3/src/kernel/support"
 	"io"
 	"net/http"
 	"strconv"
@@ -407,7 +407,7 @@ func (client *BaseClient) OverrideGetMiddlewareOfAccessToken() {
 	client.GetMiddlewareOfAccessToken = func(handle contract.RequestHandle) contract.RequestHandle {
 		return func(request *http.Request) (response *http.Response, err error) {
 			// 前置中间件
-			//fmt.Println("获取access token, 在请求前执行")
+			// fmt.Println("获取access token, 在请求前执行")
 
 			accessToken := (*client.App).GetAccessToken()
 
@@ -427,7 +427,7 @@ func (client *BaseClient) OverrideGetMiddlewareOfAccessToken() {
 
 			// handle 执行之后就可以操作 response 和 err
 			// 后置中间件
-			//fmt.Println("获取access token, 在请求后执行")
+			// fmt.Println("获取access token, 在请求后执行")
 			return
 		}
 	}
@@ -460,7 +460,7 @@ func (client *BaseClient) OverrideGetMiddlewareOfRefreshAccessToken() {
 		return contract.RequestMiddleware(func(handle contract.RequestHandle) contract.RequestHandle {
 			return func(request *http.Request) (response *http.Response, err error) {
 				// 前置中间件
-				//fmt.Println("检查微信返回错误，token是否失效，执行前访问")
+				// fmt.Println("检查微信返回错误，token是否失效，执行前访问")
 
 				response, err = handle(request)
 				// handle 执行之后就可以操作 response 和 err
@@ -481,7 +481,7 @@ func (client *BaseClient) OverrideGetMiddlewareOfRefreshAccessToken() {
 				}
 
 				// 后置中间件
-				//fmt.Println("检查微信返回错误，token是否失效，, 在请求后执行")
+				// fmt.Println("检查微信返回错误，token是否失效，, 在请求后执行")
 				return
 			}
 		})
@@ -546,10 +546,10 @@ func (client *BaseClient) CheckTokenNeedRefresh(req *http.Request, rs *http.Resp
 			}
 
 			return res2, err
-			//b, err := ioutil.ReadAll(res2.Body)
-			//rs.Body = ioutil.NopCloser(bytes.NewBuffer(b))
-			//content := string(b)
-			//fmt2.Dump(content)
+			// b, err := ioutil.ReadAll(res2.Body)
+			// rs.Body = ioutil.NopCloser(bytes.NewBuffer(b))
+			// content := string(b)
+			// fmt2.Dump(content)
 		}
 	}
 

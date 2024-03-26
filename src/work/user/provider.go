@@ -1,11 +1,11 @@
 package user
 
 import (
-	"github.com/ArtisanCloud/PowerWeChat/v3/src/kernel"
-	"github.com/ArtisanCloud/PowerWeChat/v3/src/work/user/batchJobs"
-	"github.com/ArtisanCloud/PowerWeChat/v3/src/work/user/exportJobs"
-	"github.com/ArtisanCloud/PowerWeChat/v3/src/work/user/linkedCorp"
-	"github.com/ArtisanCloud/PowerWeChat/v3/src/work/user/tag"
+	"github.com/px94/PowerWeChat/v3/src/kernel"
+	"github.com/px94/PowerWeChat/v3/src/work/user/batchJobs"
+	"github.com/px94/PowerWeChat/v3/src/work/user/exportJobs"
+	"github.com/px94/PowerWeChat/v3/src/work/user/linkedCorp"
+	"github.com/px94/PowerWeChat/v3/src/work/user/tag"
 )
 
 func RegisterProvider(app kernel.ApplicationInterface) (
@@ -16,7 +16,7 @@ func RegisterProvider(app kernel.ApplicationInterface) (
 	*tag.Client,
 	error,
 ) {
-	//config := app.GetConfig()
+	// config := app.GetConfig()
 
 	client, err := NewClient(app)
 	if err != nil {

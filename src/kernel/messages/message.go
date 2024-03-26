@@ -2,8 +2,8 @@ package messages
 
 import (
 	"github.com/ArtisanCloud/PowerLibs/v3/object"
-	"github.com/ArtisanCloud/PowerWeChat/v3/src/kernel/contract"
-	"github.com/ArtisanCloud/PowerWeChat/v3/src/kernel/power"
+	"github.com/px94/PowerWeChat/v3/src/kernel/contract"
+	"github.com/px94/PowerWeChat/v3/src/kernel/power"
 )
 
 const VOID = 0
@@ -120,11 +120,11 @@ func (msg *Message) TransformToXml(appends *object.HashMap, returnAsArray bool) 
 	} else {
 		strXML := object.Map2Xml(data, false)
 		return strXML, nil
-		//buffer, err := xml2.Marshal(data)
-		//if err != nil {
+		// buffer, err := xml2.Marshal(data)
+		// if err != nil {
 		//	return "", err
-		//}
-		//return string(buffer), nil
+		// }
+		// return string(buffer), nil
 	}
 }
 

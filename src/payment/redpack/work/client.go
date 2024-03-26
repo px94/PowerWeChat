@@ -3,9 +3,9 @@ package work
 import (
 	"context"
 	"github.com/ArtisanCloud/PowerLibs/v3/object"
-	payment "github.com/ArtisanCloud/PowerWeChat/v3/src/payment/kernel"
-	"github.com/ArtisanCloud/PowerWeChat/v3/src/payment/redpack/request"
-	"github.com/ArtisanCloud/PowerWeChat/v3/src/payment/redpack/response"
+	payment "github.com/px94/PowerWeChat/v3/src/payment/kernel"
+	"github.com/px94/PowerWeChat/v3/src/payment/redpack/request"
+	"github.com/px94/PowerWeChat/v3/src/payment/redpack/response"
 	"net/http"
 )
 
@@ -32,7 +32,7 @@ func (comp *Client) SendWorkWX(ctx context.Context, data *request.RequestSendWor
 		data.WXAppID = config.GetString("app_id", "")
 	}
 
-	//params, err := object.StructToHashMapWithTag(data,"json")
+	// params, err := object.StructToHashMapWithTag(data,"json")
 	params, err := object.StructToHashMap(data)
 
 	endpoint := comp.Wrap("/mmpaymkttransfers/sendworkwxredpack")
@@ -51,7 +51,7 @@ func (comp *Client) QueryWorkWX(ctx context.Context, data *request.RequestQueryW
 		data.Appid = config.GetString("app_id", "")
 	}
 
-	//params, err := object.StructToHashMapWithTag(data,"json")
+	// params, err := object.StructToHashMapWithTag(data,"json")
 	params, err := object.StructToHashMap(data)
 
 	endpoint := comp.Wrap("/mmpaymkttransfers/queryworkwxredpack")

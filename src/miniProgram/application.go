@@ -4,38 +4,38 @@ import (
 	"github.com/ArtisanCloud/PowerLibs/v3/logger"
 	"github.com/ArtisanCloud/PowerLibs/v3/logger/contract"
 	"github.com/ArtisanCloud/PowerLibs/v3/object"
-	"github.com/ArtisanCloud/PowerWeChat/v3/src/basicService/subscribeMessage"
-	"github.com/ArtisanCloud/PowerWeChat/v3/src/kernel"
-	"github.com/ArtisanCloud/PowerWeChat/v3/src/kernel/providers"
-	"github.com/ArtisanCloud/PowerWeChat/v3/src/miniProgram/auth"
-	"github.com/ArtisanCloud/PowerWeChat/v3/src/miniProgram/base"
-	"github.com/ArtisanCloud/PowerWeChat/v3/src/miniProgram/customerServiceMessage"
-	"github.com/ArtisanCloud/PowerWeChat/v3/src/miniProgram/dataCube"
-	"github.com/ArtisanCloud/PowerWeChat/v3/src/miniProgram/express"
-	"github.com/ArtisanCloud/PowerWeChat/v3/src/miniProgram/image"
-	"github.com/ArtisanCloud/PowerWeChat/v3/src/miniProgram/immediateDelivery"
-	"github.com/ArtisanCloud/PowerWeChat/v3/src/miniProgram/industry/miniDrama/vod"
-	"github.com/ArtisanCloud/PowerWeChat/v3/src/miniProgram/internet"
-	"github.com/ArtisanCloud/PowerWeChat/v3/src/miniProgram/liveBroadcast"
-	"github.com/ArtisanCloud/PowerWeChat/v3/src/miniProgram/nearbyPoi"
-	"github.com/ArtisanCloud/PowerWeChat/v3/src/miniProgram/ocr"
-	"github.com/ArtisanCloud/PowerWeChat/v3/src/miniProgram/operation"
-	"github.com/ArtisanCloud/PowerWeChat/v3/src/miniProgram/phoneNumber"
-	"github.com/ArtisanCloud/PowerWeChat/v3/src/miniProgram/plugin"
-	"github.com/ArtisanCloud/PowerWeChat/v3/src/miniProgram/riskControl"
-	"github.com/ArtisanCloud/PowerWeChat/v3/src/miniProgram/search"
-	"github.com/ArtisanCloud/PowerWeChat/v3/src/miniProgram/security"
-	server2 "github.com/ArtisanCloud/PowerWeChat/v3/src/miniProgram/server"
-	"github.com/ArtisanCloud/PowerWeChat/v3/src/miniProgram/serviceMarket"
-	"github.com/ArtisanCloud/PowerWeChat/v3/src/miniProgram/shortLink"
-	"github.com/ArtisanCloud/PowerWeChat/v3/src/miniProgram/soter"
-	"github.com/ArtisanCloud/PowerWeChat/v3/src/miniProgram/uniformMessage"
-	"github.com/ArtisanCloud/PowerWeChat/v3/src/miniProgram/updatableMessage"
-	"github.com/ArtisanCloud/PowerWeChat/v3/src/miniProgram/urlLink"
-	"github.com/ArtisanCloud/PowerWeChat/v3/src/miniProgram/urlScheme"
-	"github.com/ArtisanCloud/PowerWeChat/v3/src/miniProgram/virtualPayment"
-	"github.com/ArtisanCloud/PowerWeChat/v3/src/miniProgram/wxaCode"
-	"github.com/ArtisanCloud/PowerWeChat/v3/src/officialAccount/server"
+	"github.com/px94/PowerWeChat/v3/src/basicService/subscribeMessage"
+	"github.com/px94/PowerWeChat/v3/src/kernel"
+	"github.com/px94/PowerWeChat/v3/src/kernel/providers"
+	"github.com/px94/PowerWeChat/v3/src/miniProgram/auth"
+	"github.com/px94/PowerWeChat/v3/src/miniProgram/base"
+	"github.com/px94/PowerWeChat/v3/src/miniProgram/customerServiceMessage"
+	"github.com/px94/PowerWeChat/v3/src/miniProgram/dataCube"
+	"github.com/px94/PowerWeChat/v3/src/miniProgram/express"
+	"github.com/px94/PowerWeChat/v3/src/miniProgram/image"
+	"github.com/px94/PowerWeChat/v3/src/miniProgram/immediateDelivery"
+	"github.com/px94/PowerWeChat/v3/src/miniProgram/industry/miniDrama/vod"
+	"github.com/px94/PowerWeChat/v3/src/miniProgram/internet"
+	"github.com/px94/PowerWeChat/v3/src/miniProgram/liveBroadcast"
+	"github.com/px94/PowerWeChat/v3/src/miniProgram/nearbyPoi"
+	"github.com/px94/PowerWeChat/v3/src/miniProgram/ocr"
+	"github.com/px94/PowerWeChat/v3/src/miniProgram/operation"
+	"github.com/px94/PowerWeChat/v3/src/miniProgram/phoneNumber"
+	"github.com/px94/PowerWeChat/v3/src/miniProgram/plugin"
+	"github.com/px94/PowerWeChat/v3/src/miniProgram/riskControl"
+	"github.com/px94/PowerWeChat/v3/src/miniProgram/search"
+	"github.com/px94/PowerWeChat/v3/src/miniProgram/security"
+	server2 "github.com/px94/PowerWeChat/v3/src/miniProgram/server"
+	"github.com/px94/PowerWeChat/v3/src/miniProgram/serviceMarket"
+	"github.com/px94/PowerWeChat/v3/src/miniProgram/shortLink"
+	"github.com/px94/PowerWeChat/v3/src/miniProgram/soter"
+	"github.com/px94/PowerWeChat/v3/src/miniProgram/uniformMessage"
+	"github.com/px94/PowerWeChat/v3/src/miniProgram/updatableMessage"
+	"github.com/px94/PowerWeChat/v3/src/miniProgram/urlLink"
+	"github.com/px94/PowerWeChat/v3/src/miniProgram/urlScheme"
+	"github.com/px94/PowerWeChat/v3/src/miniProgram/virtualPayment"
+	"github.com/px94/PowerWeChat/v3/src/miniProgram/wxaCode"
+	"github.com/px94/PowerWeChat/v3/src/officialAccount/server"
 )
 
 type MiniProgram struct {
@@ -169,7 +169,7 @@ func NewMiniProgram(config *UserConfig, extraInfos ...*kernel.ExtraInfo) (*MiniP
 		ServiceContainer: container,
 	}
 
-	//-------------- global app config --------------
+	// -------------- global app config --------------
 	// global app config
 	app.Config = providers.RegisterConfigProvider(app)
 
@@ -183,7 +183,7 @@ func NewMiniProgram(config *UserConfig, extraInfos ...*kernel.ExtraInfo) (*MiniP
 		return nil, err
 	}
 
-	//-------------- register auth,AccessToken --------------
+	// -------------- register auth,AccessToken --------------
 	app.AccessToken, err = auth.RegisterProvider(app)
 	if err != nil {
 		return nil, err
@@ -208,165 +208,165 @@ func NewMiniProgram(config *UserConfig, extraInfos ...*kernel.ExtraInfo) (*MiniP
 		return nil, err
 	}
 
-	//-------------- register Encryptor and Server --------------
+	// -------------- register Encryptor and Server --------------
 	app.Server, err = server2.RegisterProvider(app)
 
-	//-------------- register Base --------------
+	// -------------- register Base --------------
 	app.Base, err = base.RegisterProvider(app)
 	if err != nil {
 		return nil, err
 	}
 
-	//-------------- register Broadcast --------------
+	// -------------- register Broadcast --------------
 	app.Broadcast, err = liveBroadcast.RegisterProvider(app)
 	if err != nil {
 		return nil, err
 	}
 
-	//-------------- register CustomerServiceMessage --------------
+	// -------------- register CustomerServiceMessage --------------
 	app.CustomerServiceMessage, err = customerServiceMessage.RegisterProvider(app)
 	if err != nil {
 		return nil, err
 	}
 
-	//-------------- register Data cube --------------
+	// -------------- register Data cube --------------
 	app.DataCube, err = dataCube.RegisterProvider(app)
 	if err != nil {
 		return nil, err
 	}
 
-	//-------------- register ActiveMessage --------------
+	// -------------- register ActiveMessage --------------
 	app.ActiveMessage, err = updatableMessage.RegisterProvider(app)
 	if err != nil {
 		return nil, err
 	}
 
-	//-------------- register Message --------------
+	// -------------- register Message --------------
 	app.UniformMessage, err = uniformMessage.RegisterProvider(app)
 	if err != nil {
 		return nil, err
 	}
 
-	//-------------- register Image --------------
+	// -------------- register Image --------------
 	app.Image, err = image.RegisterProvider(app)
 	if err != nil {
 		return nil, err
 	}
 
-	//-------------- register Internet --------------
+	// -------------- register Internet --------------
 	app.Internet, err = internet.RegisterProvider(app)
 	if err != nil {
 		return nil, err
 	}
 
-	//-------------- register Express --------------
+	// -------------- register Express --------------
 	app.Express, err = express.RegisterProvider(app)
 	if err != nil {
 		return nil, err
 	}
 
-	//-------------- register Delivery --------------
+	// -------------- register Delivery --------------
 	app.Delivery, err = immediateDelivery.RegisterProvider(app)
 	if err != nil {
 		return nil, err
 	}
 
-	//-------------- register OCR --------------
+	// -------------- register OCR --------------
 	app.OCR, err = ocr.RegisterProvider(app)
 	if err != nil {
 		return nil, err
 	}
-	//-------------- register Operation --------------
+	// -------------- register Operation --------------
 	app.Operation, err = operation.RegisterProvider(app)
 	if err != nil {
 		return nil, err
 	}
 
-	//-------------- register Plugin --------------
+	// -------------- register Plugin --------------
 	app.Plugin, err = plugin.RegisterProvider(app)
 	if err != nil {
 		return nil, err
 	}
 
-	//-------------- register NearbyPoi --------------
+	// -------------- register NearbyPoi --------------
 	app.NearbyPoi, err = nearbyPoi.RegisterProvider(app)
 	if err != nil {
 		return nil, err
 	}
 
-	//-------------- register WXACode --------------
+	// -------------- register WXACode --------------
 	app.WXACode, err = wxaCode.RegisterProvider(app)
 	if err != nil {
 		return nil, err
 	}
 
-	//-------------- register URLScheme --------------
+	// -------------- register URLScheme --------------
 	app.URLScheme, err = urlScheme.RegisterProvider(app)
 	if err != nil {
 		return nil, err
 	}
 
-	//-------------- register URLLink --------------
+	// -------------- register URLLink --------------
 	app.URLLink, err = urlLink.RegisterProvider(app)
 	if err != nil {
 		return nil, err
 	}
 
-	//-------------- register Security --------------
+	// -------------- register Security --------------
 	app.Security, err = security.RegisterProvider(app)
 	if err != nil {
 		return nil, err
 	}
 
-	//-------------- register Search --------------
+	// -------------- register Search --------------
 	app.Search, err = search.RegisterProvider(app)
 	if err != nil {
 		return nil, err
 	}
 
-	//-------------- register ShortLink --------------
+	// -------------- register ShortLink --------------
 	app.ShortLink, err = shortLink.RegisterProvider(app)
 	if err != nil {
 		return nil, err
 	}
 
-	//-------------- register Soter --------------
+	// -------------- register Soter --------------
 	app.Soter, err = soter.RegisterProvider(app)
 	if err != nil {
 		return nil, err
 	}
 
-	//-------------- register Service Market --------------
+	// -------------- register Service Market --------------
 	app.ServiceMarket, err = serviceMarket.RegisterProvider(app)
 	if err != nil {
 		return nil, err
 	}
 
-	//-------------- register SubscribeMessage --------------
+	// -------------- register SubscribeMessage --------------
 	app.SubscribeMessage, err = subscribeMessage.RegisterProvider(app)
 	if err != nil {
 		return nil, err
 	}
 
-	//-------------- register UpdatableMessage --------------
+	// -------------- register UpdatableMessage --------------
 	app.UpdatableMessage, err = updatableMessage.RegisterProvider(app)
 	if err != nil {
 		return nil, err
 	}
 
-	//-------------- register RiskControl --------------
+	// -------------- register RiskControl --------------
 	app.RiskControl, err = riskControl.RegisterProvider(app)
 	if err != nil {
 		return nil, err
 	}
 
-	//-------------- miniDrama Vod --------------
+	// -------------- miniDrama Vod --------------
 	app.MiniDramaVOD, err = vod.RegisterProvider(app)
 	if err != nil {
 		return nil, err
 	}
 
-	//-------------- Virtual Pay --------------
+	// -------------- Virtual Pay --------------
 	app.VirtualPayment, err = virtualPayment.RegisterProvider(app)
 	if err != nil {
 		return nil, err

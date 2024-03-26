@@ -3,9 +3,9 @@ package message
 import (
 	"context"
 	"github.com/ArtisanCloud/PowerLibs/v3/object"
-	"github.com/ArtisanCloud/PowerWeChat/v3/src/kernel"
-	"github.com/ArtisanCloud/PowerWeChat/v3/src/work/accountService/message/request"
-	"github.com/ArtisanCloud/PowerWeChat/v3/src/work/accountService/message/response"
+	"github.com/px94/PowerWeChat/v3/src/kernel"
+	"github.com/px94/PowerWeChat/v3/src/work/accountService/message/request"
+	"github.com/px94/PowerWeChat/v3/src/work/accountService/message/response"
 )
 
 type Client struct {

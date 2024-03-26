@@ -1,17 +1,17 @@
 package miniProgram
 
 import (
-	"github.com/ArtisanCloud/PowerWeChat/v3/src/kernel"
-	"github.com/ArtisanCloud/PowerWeChat/v3/src/kernel/providers"
-	"github.com/ArtisanCloud/PowerWeChat/v3/src/miniProgram"
-	"github.com/ArtisanCloud/PowerWeChat/v3/src/officialAccount/material"
-	"github.com/ArtisanCloud/PowerWeChat/v3/src/openPlatform/authorizer/miniProgram/account"
-	"github.com/ArtisanCloud/PowerWeChat/v3/src/openPlatform/authorizer/miniProgram/auth"
-	"github.com/ArtisanCloud/PowerWeChat/v3/src/openPlatform/authorizer/miniProgram/code"
-	"github.com/ArtisanCloud/PowerWeChat/v3/src/openPlatform/authorizer/miniProgram/domain"
-	"github.com/ArtisanCloud/PowerWeChat/v3/src/openPlatform/authorizer/miniProgram/privacy"
-	"github.com/ArtisanCloud/PowerWeChat/v3/src/openPlatform/authorizer/miniProgram/setting"
-	"github.com/ArtisanCloud/PowerWeChat/v3/src/openPlatform/authorizer/miniProgram/tester"
+	"github.com/px94/PowerWeChat/v3/src/kernel"
+	"github.com/px94/PowerWeChat/v3/src/kernel/providers"
+	"github.com/px94/PowerWeChat/v3/src/miniProgram"
+	"github.com/px94/PowerWeChat/v3/src/officialAccount/material"
+	"github.com/px94/PowerWeChat/v3/src/openPlatform/authorizer/miniProgram/account"
+	"github.com/px94/PowerWeChat/v3/src/openPlatform/authorizer/miniProgram/auth"
+	"github.com/px94/PowerWeChat/v3/src/openPlatform/authorizer/miniProgram/code"
+	"github.com/px94/PowerWeChat/v3/src/openPlatform/authorizer/miniProgram/domain"
+	"github.com/px94/PowerWeChat/v3/src/openPlatform/authorizer/miniProgram/privacy"
+	"github.com/px94/PowerWeChat/v3/src/openPlatform/authorizer/miniProgram/setting"
+	"github.com/px94/PowerWeChat/v3/src/openPlatform/authorizer/miniProgram/tester"
 )
 
 type Application struct {
@@ -42,47 +42,47 @@ func NewApplication(config *miniProgram.UserConfig, extraInfos ...*kernel.ExtraI
 		MiniProgram: miniProgram,
 	}
 
-	//-------------- global app config --------------
+	// -------------- global app config --------------
 	// global app config
 	app.Config = providers.RegisterConfigProvider(app)
 
-	//-------------- register Aggregate --------------
+	// -------------- register Aggregate --------------
 	app.Account, err = account.RegisterProvider(app)
 	if err != nil {
 		return nil, err
 	}
 
-	//-------------- register Code --------------
+	// -------------- register Code --------------
 	app.Code, err = code.RegisterProvider(app)
 	if err != nil {
 		return nil, err
 	}
 
-	//-------------- register Domain --------------
+	// -------------- register Domain --------------
 	app.Domain, err = domain.RegisterProvider(app)
 	if err != nil {
 		return nil, err
 	}
 
-	//-------------- register Material --------------
+	// -------------- register Material --------------
 	app.Material, err = material.RegisterProvider(app)
 	if err != nil {
 		return nil, err
 	}
 
-	//-------------- register Privacy --------------
+	// -------------- register Privacy --------------
 	app.Privacy, err = privacy.RegisterProvider(app)
 	if err != nil {
 		return nil, err
 	}
 
-	//-------------- register Setting --------------
+	// -------------- register Setting --------------
 	app.Setting, err = setting.RegisterProvider(app)
 	if err != nil {
 		return nil, err
 	}
 
-	//-------------- register Tester --------------
+	// -------------- register Tester --------------
 	app.Tester, err = tester.RegisterProvider(app)
 	if err != nil {
 		return nil, err

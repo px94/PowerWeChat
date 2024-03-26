@@ -3,9 +3,9 @@ package groupChat
 import (
 	"context"
 	"github.com/ArtisanCloud/PowerLibs/v3/object"
-	"github.com/ArtisanCloud/PowerWeChat/v3/src/kernel"
-	"github.com/ArtisanCloud/PowerWeChat/v3/src/work/externalContact/groupChat/request"
-	"github.com/ArtisanCloud/PowerWeChat/v3/src/work/externalContact/groupChat/response"
+	"github.com/px94/PowerWeChat/v3/src/kernel"
+	"github.com/px94/PowerWeChat/v3/src/work/externalContact/groupChat/request"
+	"github.com/px94/PowerWeChat/v3/src/work/externalContact/groupChat/response"
 )
 
 type Client struct {

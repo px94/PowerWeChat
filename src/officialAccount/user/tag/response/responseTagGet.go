@@ -1,6 +1,6 @@
 package response
 
-import "github.com/ArtisanCloud/PowerWeChat/v3/src/kernel/response"
+import "github.com/px94/PowerWeChat/v3/src/kernel/response"
 
 type Tag struct {
 	ID    int    `json:"id"`
@@ -14,7 +14,7 @@ type ResponseTagGet struct {
 	Tag *Tag `json:"tag"`
 }
 
-//---------------------------------------------
+// ---------------------------------------------
 
 type ResponseTagGetList struct {
 	response.ResponseOfficialAccount

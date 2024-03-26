@@ -5,10 +5,10 @@ import (
 	"errors"
 	"fmt"
 	"github.com/ArtisanCloud/PowerLibs/v3/object"
-	response2 "github.com/ArtisanCloud/PowerWeChat/v3/src/kernel/response"
-	payment "github.com/ArtisanCloud/PowerWeChat/v3/src/payment/kernel"
-	"github.com/ArtisanCloud/PowerWeChat/v3/src/payment/order/request"
-	"github.com/ArtisanCloud/PowerWeChat/v3/src/payment/order/response"
+	response2 "github.com/px94/PowerWeChat/v3/src/kernel/response"
+	payment "github.com/px94/PowerWeChat/v3/src/payment/kernel"
+	"github.com/px94/PowerWeChat/v3/src/payment/order/request"
+	"github.com/px94/PowerWeChat/v3/src/payment/order/response"
 	"net/http"
 )
 
@@ -99,7 +99,7 @@ func (comp *Client) PayTransaction(ctx context.Context, entryPoint string, param
 	mchID := config.GetString("mch_id", "")
 	params.SetMchID(mchID)
 
-	//options, err := object.StructToHashMapWithTag(params,"json")
+	// options, err := object.StructToHashMapWithTag(params,"json")
 	options, err := object.StructToHashMap(params)
 	if err != nil {
 		return nil, err

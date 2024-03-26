@@ -1,7 +1,7 @@
 package response
 
 import (
-	"github.com/ArtisanCloud/PowerWeChat/v3/src/kernel/response"
+	"github.com/px94/PowerWeChat/v3/src/kernel/response"
 )
 
 type ResponseImmediateDeliveryPreAddOrder struct {
@@ -14,6 +14,6 @@ type ResponseImmediateDeliveryPreAddOrder struct {
 	InsurancFee      float64 `json:"insurancfee"`       // 0,
 	Distance         float64 `json:"distance"`          // 1000,
 	DispatchDuration int64   `json:"dispatch_duration"` // 300,
-	DeliveryToken    int64   `json:"delivery_token"`    //" 1111111"
+	DeliveryToken    int64   `json:"delivery_token"`    // " 1111111"
 
 }

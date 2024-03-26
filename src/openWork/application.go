@@ -4,21 +4,21 @@ import (
 	"github.com/ArtisanCloud/PowerLibs/v3/logger"
 	"github.com/ArtisanCloud/PowerLibs/v3/logger/contract"
 	"github.com/ArtisanCloud/PowerLibs/v3/object"
-	"github.com/ArtisanCloud/PowerWeChat/v3/src/kernel"
-	"github.com/ArtisanCloud/PowerWeChat/v3/src/kernel/providers"
-	miniProgram2 "github.com/ArtisanCloud/PowerWeChat/v3/src/miniProgram"
-	"github.com/ArtisanCloud/PowerWeChat/v3/src/openWork/auth"
-	"github.com/ArtisanCloud/PowerWeChat/v3/src/openWork/base"
-	"github.com/ArtisanCloud/PowerWeChat/v3/src/openWork/contact"
-	"github.com/ArtisanCloud/PowerWeChat/v3/src/openWork/corp"
-	"github.com/ArtisanCloud/PowerWeChat/v3/src/openWork/device"
-	"github.com/ArtisanCloud/PowerWeChat/v3/src/openWork/license"
-	"github.com/ArtisanCloud/PowerWeChat/v3/src/openWork/media"
-	"github.com/ArtisanCloud/PowerWeChat/v3/src/openWork/miniProgram"
-	"github.com/ArtisanCloud/PowerWeChat/v3/src/openWork/provider"
-	"github.com/ArtisanCloud/PowerWeChat/v3/src/openWork/server"
-	suit "github.com/ArtisanCloud/PowerWeChat/v3/src/openWork/suitAuth"
-	workMiniProgram "github.com/ArtisanCloud/PowerWeChat/v3/src/work/miniProgram"
+	"github.com/px94/PowerWeChat/v3/src/kernel"
+	"github.com/px94/PowerWeChat/v3/src/kernel/providers"
+	miniProgram2 "github.com/px94/PowerWeChat/v3/src/miniProgram"
+	"github.com/px94/PowerWeChat/v3/src/openWork/auth"
+	"github.com/px94/PowerWeChat/v3/src/openWork/base"
+	"github.com/px94/PowerWeChat/v3/src/openWork/contact"
+	"github.com/px94/PowerWeChat/v3/src/openWork/corp"
+	"github.com/px94/PowerWeChat/v3/src/openWork/device"
+	"github.com/px94/PowerWeChat/v3/src/openWork/license"
+	"github.com/px94/PowerWeChat/v3/src/openWork/media"
+	"github.com/px94/PowerWeChat/v3/src/openWork/miniProgram"
+	"github.com/px94/PowerWeChat/v3/src/openWork/provider"
+	"github.com/px94/PowerWeChat/v3/src/openWork/server"
+	suit "github.com/px94/PowerWeChat/v3/src/openWork/suitAuth"
+	workMiniProgram "github.com/px94/PowerWeChat/v3/src/work/miniProgram"
 )
 
 type OpenWork struct {
@@ -105,7 +105,7 @@ func NewOpenWork(config *UserConfig) (*OpenWork, error) {
 		ServiceContainer: container,
 	}
 
-	//-------------- global app config --------------
+	// -------------- global app config --------------
 	// global app config
 	app.Config = providers.RegisterConfigProvider(app)
 
@@ -119,60 +119,60 @@ func NewOpenWork(config *UserConfig) (*OpenWork, error) {
 		return nil, err
 	}
 
-	//-------------- register auth --------------
+	// -------------- register auth --------------
 	app.SuiteTicket, app.SuiteAccessToken, err = suit.RegisterProvider(app)
 	if err != nil {
 		return nil, err
 	}
-	//-------------- register Base --------------
+	// -------------- register Base --------------
 	app.Base, err = base.RegisterProvider(app)
 	if err != nil {
 		return nil, err
 	}
 
-	//-------------- register Encryptor and Server --------------
+	// -------------- register Encryptor and Server --------------
 	app.Encryptor, app.Server, err = server.RegisterProvider(app)
 	if err != nil {
 		return nil, err
 	}
 
-	//-------------- register Corp --------------
+	// -------------- register Corp --------------
 	app.Corp, err = corp.RegisterProvider(app)
 	if err != nil {
 		return nil, err
 	}
 
-	//-------------- register Provider --------------
+	// -------------- register Provider --------------
 	app.Provider, err = provider.RegisterProvider(app)
 	if err != nil {
 		return nil, err
 	}
 
-	//-------------- register ProviderAccessToken --------------
+	// -------------- register ProviderAccessToken --------------
 	app.ProviderAccessToken, err = auth.RegisterProvider(app)
 	if err != nil {
 		return nil, err
 	}
 
-	//-------------- register Media --------------
+	// -------------- register Media --------------
 	app.Media, err = media.RegisterProvider(app)
 	if err != nil {
 		return nil, err
 	}
 
-	//-------------- register Contact --------------
+	// -------------- register Contact --------------
 	app.Contact, err = contact.RegisterProvider(app)
 	if err != nil {
 		return nil, err
 	}
 
-	//-------------- register License --------------
+	// -------------- register License --------------
 	app.LicenseOrder, app.LicenseAccount, err = license.RegisterProvider(app)
 	if err != nil {
 		return nil, err
 	}
 
-	//-------------- register Device --------------
+	// -------------- register Device --------------
 	app.Device, err = device.RegisterProvider(app)
 	if err != nil {
 		return nil, err
@@ -293,23 +293,23 @@ func (app *OpenWork) convertUserConfigToWorkMiniProgramConfig(config *object.Col
 		log = logConfig.(miniProgram2.Log)
 	}
 
-	//// auth config
-	//logConfig := config.Get("log", nil)
-	//log := miniProgram2.Log{
+	// // auth config
+	// logConfig := config.Get("log", nil)
+	// log := miniProgram2.Log{
 	//	Level: "",
 	//	File:  "",
 	//	ENV:   "",
-	//}
-	//if logConfig != nil {
+	// }
+	// if logConfig != nil {
 	//	log = logConfig.(miniProgram2.Log)
-	//}
+	// }
 	//
-	//// cache config
-	//cacheConfig := config.Get("log", nil)
-	//var cache cache.CacheInterface
-	//if cacheConfig != nil {
+	// // cache config
+	// cacheConfig := config.Get("log", nil)
+	// var cache cache.CacheInterface
+	// if cacheConfig != nil {
 	//	cache = cacheConfig.(cache.CacheInterface)
-	//}
+	// }
 
 	// http config
 	httpConfig := config.Get("http", nil)
@@ -327,8 +327,8 @@ func (app *OpenWork) convertUserConfigToWorkMiniProgramConfig(config *object.Col
 			ComponentAppToken: config.GetString("componentAppToken", ""),
 			ResponseType:      config.GetString("responseType", ""),
 			Log:               log,
-			//OAuth:             config.GetString("oauth", ""),
-			//Cache:             cache,
+			// OAuth:             config.GetString("oauth", ""),
+			// Cache:             cache,
 			HttpDebug: config.GetBool("httpDebug", false),
 			Debug:     config.GetBool("debug", false),
 			NotifyURL: config.GetString("notifyURL", ""),
