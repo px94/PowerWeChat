@@ -1,4 +1,4 @@
-module github.com/px94/PowerWechat/v3
+module github.com/px94/PowerWeChat/v3
 
 go 1.17
 
