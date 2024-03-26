@@ -70,6 +70,10 @@ func NewAccessToken(app *ApplicationInterface) (*AccessToken, error) {
 		InteractsWithCache: NewInteractsWithCache(cacheClient),
 	}
 
+	if config.GetBool("is_stable", false) {
+		token.RequestMethod = http.MethodPost
+	}
+
 	token.SetCustomToken = nil
 	token.GetCustomToken = nil
 	token.OverrideGetEndpoint()

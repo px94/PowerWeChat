@@ -108,6 +108,8 @@ type UserConfig struct {
 	Debug     bool
 	NotifyURL string
 	Sandbox   bool
+
+	IsStable bool
 }
 
 type Http struct {
@@ -473,6 +475,8 @@ func MapUserConfig(userConfig *UserConfig) (*object.HashMap, error) {
 			"scopes":    userConfig.OAuth.Scopes,
 			"callbacks": userConfig.OAuth.Callback,
 		},
+
+		"is_stable": userConfig.IsStable,
 	}
 
 	return config, nil

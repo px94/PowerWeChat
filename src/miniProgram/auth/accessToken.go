@@ -21,6 +21,10 @@ func NewAccessToken(app *kernel.ApplicationInterface) (*AccessToken, error) {
 	token.EndpointToGetToken = "https://api.weixin.qq.com/cgi-bin/token"
 	token.OverrideGetCredentials()
 
+	if (*app).GetConfig().GetBool("is_stable", false) {
+		token.EndpointToGetToken = "https://api.weixin.qq.com/cgi-bin/stable_token"
+	}
+
 	return token, err
 }
 
